@@ -1,0 +1,6 @@
+<div>
+  <select *ngIf="styles.length>0" (change)="chooseStyle($event)">
+    <option *ngFor="let list of styles" [value]="list.id">{{list.title}}</option>
+  </select>
+</div>
+Please Choose one: <input type="file" accept="image/png, image/jpeg, image/jpg" (change)="uploadImg($event)">
