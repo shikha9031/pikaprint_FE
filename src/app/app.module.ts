@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { PrintImgComponent } from './print-img/print-img.component';
 
 import { RouteClass } from './app.route';
+import { HttpClientModule } from '@angular/common/http';
+
+import { DeepArtService } from './print-img/deep-art.service';
 
 @NgModule({
   declarations: [
@@ -13,9 +16,10 @@ import { RouteClass } from './app.route';
   ],
   imports: [
     BrowserModule,
-    RouteClass
+    RouteClass,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DeepArtService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
