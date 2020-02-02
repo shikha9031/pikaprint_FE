@@ -19,6 +19,8 @@ export class PrintImgComponent implements OnInit {
   styles: any = [];
   styleSelected: string;
   base64ConvertedImg: string;
+  submissionId:String; 
+  imgUrl:string;
 
   constructor(private _deepArt:DeepArtService) { }
 
@@ -26,7 +28,6 @@ export class PrintImgComponent implements OnInit {
   }
   ngAfterViewInit() {
     this._deepArt.getAllStyles().subscribe(res=>{
-      console.log(res);
       if(res.styles && res.styles.length>0){
         this.styles = res.styles;
         this.styleSelected = res.styles[0].id;        
@@ -49,7 +50,6 @@ export class PrintImgComponent implements OnInit {
   }
   chooseStyle(param) {
     this.styleSelected = param.target.value;
-    console.log(param.target.value);
   }
   getSubmissionId(){
     if(this.base64ConvertedImg){
@@ -58,10 +58,9 @@ export class PrintImgComponent implements OnInit {
         "imageBase64Encoded":this.base64ConvertedImg.substring((this.base64ConvertedImg.indexOf(',')+1), this.base64ConvertedImg.length)
       }; 
       this._deepArt.postImg(params).subscribe(res=>{
-        console.log("Successfully uploaded image");
-        console.log("SubmissionId: " + res.submissionId);
         if(res.submissionId){
-          this.getPrintedImgUrl(res.submissionId);
+          this.submissionId = res.submissionId;
+          this.getPrintedImgUrl(this.submissionId);
         }
       },error=>{
          console.log(error);
@@ -70,21 +69,20 @@ export class PrintImgComponent implements OnInit {
     
   }
   getPrintedImgUrl(param){
-    console.log(param);
-    this._deepArt.getImg(param).subscribe(res=>{
-      console.log("Successfully uploaded image");
-      console.log("SubmissionId: " + res)
-    },error=>{
-       console.log(error);
-    })
-  // deepArtEffectsClient.resultGet(params)
-  // .then(function(result) {
-  //   console.log("Successfully checked status");
-  //   if(result.data.status=="finished") {
-  //     console.log("URL for artwork: " + result.data.url)
-  //   }
-  // }).catch(function(result){
-  //   console.log("Error checking status");
-  // });
+    if(param){
+      this._deepArt.getImg(param).subscribe(res=>{
+        if(res.status === 'new' || res.status === 'processing'){
+          this.getPrintedImgUrl(param);
+        }
+        else if(res.status === 'finished'){
+          if(res.url){
+            this.imgUrl = res.url;
+          }
+        }
+        console.log(res);
+      },error=>{
+         console.log(error);
+      })
+    }
   }
 }
