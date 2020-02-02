@@ -21,6 +21,9 @@ export class PrintImgComponent implements OnInit {
   base64ConvertedImg: string;
   submissionId:String; 
   imgUrl:string;
+  hideUploadBtn:boolean = true;
+  error:boolean = false;
+  timer:any; 
 
   constructor(private _deepArt:DeepArtService) { }
 
@@ -52,6 +55,8 @@ export class PrintImgComponent implements OnInit {
     this.styleSelected = param.target.value;
   }
   getSubmissionId(){
+    this.hideUploadBtn = false;    
+    this.error = false;
     if(this.base64ConvertedImg){
       let params = {
         "styleId": this.styleSelected,
@@ -70,19 +75,25 @@ export class PrintImgComponent implements OnInit {
   }
   getPrintedImgUrl(param){
     if(param){
-      this._deepArt.getImg(param).subscribe(res=>{
-        if(res.status === 'new' || res.status === 'processing'){
-          this.getPrintedImgUrl(param);
-        }
-        else if(res.status === 'finished'){
-          if(res.url){
-            this.imgUrl = res.url;
+    clearTimeout(this.timer);
+     this.timer = setTimeout(()=>{
+        this._deepArt.getImg(param).subscribe(res=>{
+          if(res.status === 'new' || res.status === 'processing'){
+            this.getPrintedImgUrl(param);
           }
-        }
-        console.log(res);
-      },error=>{
-         console.log(error);
-      })
+          else if(res.status === 'finished'){
+            if(res.url){
+              this.imgUrl = res.url;
+              this.hideUploadBtn = true;
+            }
+          }
+        },error=>{
+           this.hideUploadBtn = true;   
+           this.error = true;     
+           console.log(error);
+        })
+      },500)
+     
     }
   }
 }
