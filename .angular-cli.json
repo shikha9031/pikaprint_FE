@@ -21,19 +21,7 @@
       "styles": [
         "styles.scss"
       ],
-      "scripts": [
-        "./assets/js/axios.standalone.js",
-        "./assets/js/hmac-sha256.js",
-        "./assets/js/sha256.js",
-        "./assets/js/hmac.js",
-        "./assets/js/enc-base64.js",
-        "./assets/js/url-template.js",
-        "./assets/js/sigV4Client.js",       
-        "./assets/js/apiGatewayClient.js",
-        "./assets/js/simpleHttpClient.js",
-        "./assets/js/utils.js",              
-        "./assets/js/apigClient.js"
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
