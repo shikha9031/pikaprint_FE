@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { DeepArtService } from './deep-art.service';
 
 declare var paypal: any;
@@ -27,6 +27,11 @@ export class PrintImgComponent implements OnInit {
   timer: any;
   orderId: string;
   accessToken: string;
+
+  /** paypal config */
+  addScript: boolean = false;
+  finalAmount: number = 1;
+ 
   paypalArray: any = [];
 
   constructor(private _deepArt: DeepArtService) { }
@@ -66,17 +71,19 @@ export class PrintImgComponent implements OnInit {
         // This function captures the funds from the transaction.
         return actions.order.capture().then(function (details) {
           // This function shows a transaction success message to your buyer.
+          console.log(details);
+          console.log(data);
           alert('Transaction completed by ' + details.payer.name.given_name);
           // Call your server to save the transaction
-          return fetch('/paypal-transaction-complete', {
-            method: 'post',
-            headers: {
-              'content-type': 'application/json'
-            },
-            body: JSON.stringify({
-              orderID: data.orderID
-            })
-          });
+          // return fetch('/paypal-transaction-complete', {
+          //   method: 'post',
+          //   headers: {
+          //     'content-type': 'application/json'
+          //   },
+          //   body: JSON.stringify({
+          //     orderID: data.orderID
+          //   })
+          // });
         });
       }
     }).render('#paypalForPayment');
@@ -138,39 +145,4 @@ export class PrintImgComponent implements OnInit {
 
     }
   }
-
-  // getProducts(){
-  //   this._deepArt.getAvailableProducts().subscribe(res=>{
-  //     console.log(res);
-  //   })
-  // }
-  // placeOrder() {
-  //   let data = {
-  //     "proof_of_payment": "PAY-4M676136DK539691RKURJ7QY",
-  //     "shipping_address": {
-  //       "recipient_name": "Deon Botha",
-  //       "address_line_1": "Eastcastle House",
-  //       "address_line_2": "27-28 Eastcastle Street",
-  //       "city": "London",
-  //       "county_state": "Greater London",
-  //       "postcode": "W1W 8DH",
-  //       "country_code": "GBR"
-  //     },
-  //     "customer_email": "shikhamymail101@gmail.com",
-  //     "customer_phone": "+44 (0)784297 1234",
-  //     "customer_payment": {
-  //       "amount": 29.99,
-  //       "currency": "USD"
-  //     },
-  //     "jobs": [{
-  //       "assets": ["https://www.deeparteffects.com/images/generated/a2a4f42b-766c-43e4-a9fa-4168b30fa0fd.jpg"],
-  //       "template_id": "i6_case"
-  //     }]
-  //   }
-  //   this._deepArt.placeOrder(data).subscribe(res=>{
-  //     console.log(res);
-  //   }, error=>{
-  //     console.log(error);
-  //   })
-  // }
 }

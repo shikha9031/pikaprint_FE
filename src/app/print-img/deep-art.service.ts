@@ -54,6 +54,7 @@ export class DeepArtService {
         grant_type: 'client_credentials'
       }
     });
+    
     let Username='ASTSWXrbooRDiJsjaHN90V8_4gec92mpV1TWw0os2GTcp233P6AsoQXNB5dIDxKGd0TPictbUuvfyzUS';
     let Password='EBkroIzENvIalnLf9p2uOtTlgIgrXPcXDdsOdSI-1KuLX5pfI3lQ7tcmi_oaAFP8QEqrP171q9oGogM5';
     let authorizationData = 'Basic ' + btoa(Username + ':' + Password);
