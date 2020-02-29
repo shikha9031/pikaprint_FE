@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { PrintImgComponent } from './print-img/print-img.component';
+import { PrintImgComponent } from './component/print-img/print-img.component';
+import { HomeComponent } from './component/home/home.component';
 
 let route: Routes = [
-  { path: '', redirectTo:'home', pathMatch: 'full' },
-  { path: 'home', component: PrintImgComponent, pathMatch: 'full' }
+  { path: '', redirectTo:'poc', pathMatch: 'full' },
+  { path: 'poc', component: PrintImgComponent, pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, pathMatch: 'full' },  
 ];
 
 @NgModule({
