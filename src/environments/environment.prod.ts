@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  apiSandbox:'https://sandbox.pwinty.com/v3.0',
+  dashBoardSandbox:'https://sandbox-beta-dashboard.pwinty.com',
+  baseUrl:'http://localhost:3000/'
 };
