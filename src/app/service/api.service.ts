@@ -16,9 +16,9 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   
   getPaymentIntent(){
-    return this.http.get<any>(environment.baseUrl + 'stripe/paymentIntent', httpOptions).pipe();    
+    return this.http.get<any>(environment.baseUrl + 'pikaprint/paymentIntent', httpOptions).pipe();    
   }
   getIdealPaymentIntent(){
-    return this.http.get<any>(environment.baseUrl + 'stripe/idealPaymentIntent', httpOptions).pipe();        
+    return this.http.get<any>(environment.baseUrl + 'pikaprint/idealPaymentIntent', httpOptions).pipe();        
   }
 }
