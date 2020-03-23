@@ -1,12 +1,38 @@
 <div class="header-container">
   <div class="logo">
-    <div class="bar">
-    </div>
-    <div>
-      <div class="icon"></div>
-      <div class="title">Pikaprint</div>
-    </div>
+      <div class="icon">
+        <img src="/assets/image/Union.svg" class="menu-bar">
+        <img src="/assets/image/Logo.png" class="pikaprint-img">
+      </div>
+      <div class="menu-container">
+        <div class="options-wrapper">
+                <div class="list" (click)="uploadImage()">
+                        <div class="menu-icon">
+                             <img src="/assets/image/image-svg.svg" [hidden]="!imageClick">
+                             <img src="/assets/image/image-svg-dark.svg" [hidden]="imageClick">                 
+                        </div>
+                        <div class="menu-title" [ngStyle]="{'color': imageClick ? '#EC575C':'#35373E'}">Images</div> 
+                </div>
+                <div class="list" (click)="filterImage()">
+                        <div class="menu-icon">
+                            <img src="/assets/image/Filters_icon_dark.svg" [hidden]="filterClick">
+                            <img src="/assets/image/Filters_icon_red.svg" [hidden]="!filterClick">                
+                        </div>
+                        <div class="menu-title"  [ngStyle]="{'color': filterClick ? '#EC575C':'#35373E'}">Filters</div> 
+                </div>
+                <div class="list" (click)="printImg()">
+                        <div class="menu-icon">
+                            <img src="/assets/image/Frame_icon_dark.svg" [hidden]="printClick">
+                            <img src="/assets/image/Frame_icon_red.svg" [hidden]="!printClick">
+                        </div>
+                        <div class="menu-title"  [ngStyle]="{'color': printClick ? '#EC575C':'#35373E'}">Prints</div> 
+                </div>
+        </div> 
+      </div>
+      <div class="basket">
+        <div class="print-count">1</div>
+        <img src="/assets/image/Basket_icon.svg">
+      </div>
   </div>
-  <div class="menu"></div>
-  <div class="cart"><i class="fas fa-cart-plus"></i></div>
+  <span class="icon-Union"></span>
 </div>

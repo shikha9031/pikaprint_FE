@@ -1,0 +1,25 @@
+<div class="home-wrapper" [class.home-wrapper-border]="!imageSrc">
+    <ng-container *ngIf="!showLoader && !imageSrc">
+        <div class="cloud"><img src="/assets/image/cloud.svg" ></div>
+        <div class="up-arrow"><img src="/assets/image/up-arrow.svg" ></div>
+        <div class="image-icon"><img src="/assets/image/image-icon-grey.svg" ></div>  
+        <div class="pick-img-button" (click)="uploadImage()" >
+            <div style="height:0px;overflow:hidden">
+                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" accept="image/x-png,image/gif,image/jpeg" />
+            </div>
+            <div class="img"><img src="/assets/image/cloud_upload.svg"></div>
+            <span class="btn-txt">Pick an image</span>
+        </div> 
+    </ng-container>
+    <div *ngIf="imageSrc" class="uploaded-img-wrapper">
+        <img [src]="imageSrc" class="img-size" >
+    </div>
+    <div *ngIf="showLoader" class="upload-img-wrapper">         
+            <div class="title">Uploading image</div>
+            <div id="progressBar">
+                    <div class=""></div>
+            </div>
+    </div> 
+</div>
+<filters></filters>
+<print-catalog></print-catalog>

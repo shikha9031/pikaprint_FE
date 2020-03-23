@@ -5,9 +5,10 @@ import { ApiService } from '../../service/api.service';
 
 declare var Stripe: any;
 // var stripe = Stripe('pk_test_TNUkeq3rB4LZ9BIcutvwwYpZ00vty1zMHH');
-var stripe = Stripe('pk_test_ZJpMy2snhLEbZ9kLRO4DuZli00FVeCCXfS');
-declare var paypal: any;
-var FUNDING_SOURCES = [ paypal.FUNDING.PAYPAL ];
+//var stripe = Stripe('pk_test_ZJpMy2snhLEbZ9kLRO4DuZli00FVeCCXfS');
+
+// declare var paypal: any;
+// var FUNDING_SOURCES = [ paypal.FUNDING.PAYPAL ];
 declare var $:any;
 
 // var deepArtEffectsClient = apigClientFactory.newClient({
@@ -51,8 +52,8 @@ export class PrintImgComponent implements OnInit {
     ) { }
 
   ngOnInit() { 
-    this.getCardPayment();
-    this.idealpayment();
+    // this.getCardPayment();
+    // this.idealpayment();
   
   }
 
@@ -64,44 +65,7 @@ export class PrintImgComponent implements OnInit {
       }
     });
 
-   
-    // paypal payment integration
-    paypal.Buttons({
-      createOrder: function (data, actions) {
-        // This function sets up the details of the transaction, including the amount and line item details.
-        return actions.order.create({
-          purchase_units: [
-            {
-              amount: {
-                value: '0.01',
-              }
-            }
-          ]
-        });
-      },
-      onApprove: function (data, actions) {
-        // This function captures the funds from the transaction.
-        return actions.order.capture().then(function (details) {
-          // This function shows a transaction success message to your buyer.
-          alert('Transaction completed by ' + details.payer.name.given_name);
-          // Call your server to save the transaction
-        });
-      }
-    });
-    FUNDING_SOURCES.forEach(function(fundingSource) {
-      
-          // Initialize the buttons
-          var button = paypal.Buttons({
-              fundingSource: fundingSource
-          });
-      
-          // Check if the button is eligible
-          if (button.isEligible()) {
-      
-              // Render the standalone button for that funding source
-              button.render('#paypalForPayment');
-          }
-      });
+    //this.paypalMethod();
 
     this._deepArt.getAccessTokenForPaypal().subscribe(res => {
       if (res.access_token) {
@@ -175,7 +139,6 @@ export class PrintImgComponent implements OnInit {
   /** order picture */
   getInvoicesFromPaypal() {
     this._deepArt.getInvoices(this.accessToken).subscribe(res => {
-      console.log(res);
     })
   }
 
@@ -185,7 +148,6 @@ export class PrintImgComponent implements OnInit {
       this.orderId = res.data.id;
       if (this.orderId) {
         this._deepArt.addImage(this.orderId).subscribe(response => {
-          console.log(response);
         })
       }
     });
@@ -195,10 +157,8 @@ export class PrintImgComponent implements OnInit {
   submitOrder() {
     if (this.orderId) {
       this._deepArt.checkOrder(this.orderId).subscribe(response => {
-        console.log(response);
       })
       this._deepArt.orderStatus(this.orderId).subscribe(response => {
-        console.log(response);
       })
     }
   }
@@ -210,7 +170,7 @@ export class PrintImgComponent implements OnInit {
       if(res.paymentIntent && res.paymentIntent.client_secret) this.clientSecret = res.paymentIntent.client_secret;
     })
   }
-  getCardPayment(){
+ /** 
     this.getPaymentIntent(); 
     var elements = stripe.elements();    
     var style = {
@@ -261,7 +221,7 @@ export class PrintImgComponent implements OnInit {
         }
       });
     });
-  }
+  } **/
 
   // ideal payment intent
 
@@ -270,11 +230,10 @@ export class PrintImgComponent implements OnInit {
       if(res.paymentIntent && res.paymentIntent.client_secret)
         {
           this.idealClientSecret = res.paymentIntent.client_secret;
-          console.log(this.idealClientSecret);
         }
     })
   }
-  idealpayment() {
+  /** idealpayment() {
     this.getIdealPaymentIntent();
     var elements = stripe.elements();
     var options = {
@@ -315,10 +274,51 @@ export class PrintImgComponent implements OnInit {
               name: 'abcd',
             },
           },
-          return_url: 'http://localhost:4200/poc',
+          return_url: 'https://pikaprint-22450.web.app/poc',
         }
       );
     });
-  }
-
+  } **/
+ 
+  /**
+   paypalMethod(){
+     // paypal payment integration
+    paypal.Buttons({
+      createOrder: function (data, actions) {
+        // This function sets up the details of the transaction, including the amount and line item details.
+        return actions.order.create({
+          purchase_units: [
+            {
+              amount: {
+                value: '0.01',
+              }
+            }
+          ]
+        });
+      },
+      onApprove: function (data, actions) {
+        // This function captures the funds from the transaction.
+        return actions.order.capture().then(function (details) {
+          // This function shows a transaction success message to your buyer.
+          alert('Transaction completed by ' + details.payer.name.given_name);
+          // Call your server to save the transaction
+        });
+      }
+    });
+    FUNDING_SOURCES.forEach(function(fundingSource) {
+      
+          // Initialize the buttons
+          var button = paypal.Buttons({
+              fundingSource: fundingSource
+          });
+      
+          // Check if the button is eligible
+          if (button.isEligible()) {
+      
+              // Render the standalone button for that funding source
+              button.render('#paypalForPayment');
+          }
+      });
+   }
+   */
 }

@@ -1,0 +1,15 @@
+<!-- You can use owl-carousel selector to include its component -->
+<div class="carousel-wrapper" *ngIf="filterObj.showFilter">
+    <owl-carousel [options]="{items: 9, dots: true, navigation: true}" [items]="images" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+        <div class="item" *ngFor="let image of images;let i = index" width="120px">
+            <div class="thumbnail-image">
+                <div class="filter-img" (click)="selectItem(i)"><img src="/assets/image/filter-img.svg"></div>
+                <ng-container *ngIf="selectedIndex == i">
+                    <div class="shadow-img"></div>
+                    <div class="tick-sign"><img src="/assets/image/tick-sign.svg"></div>
+                </ng-container>
+                <div class="filter-name">Filter Tile</div>
+            </div>
+        </div>
+    </owl-carousel>
+</div>

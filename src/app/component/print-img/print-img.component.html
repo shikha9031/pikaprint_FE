@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <select *ngIf="styles.length>0" (change)="chooseStyle($event)">
     <option *ngFor="let list of styles" [value]="list.id">{{list.title}}</option>
   </select>
@@ -7,18 +7,13 @@ Please Choose one: <input type="file" accept="image/png, image/jpeg, image/jpg" 
 <button (click)="getSubmissionId()" *ngIf="hideUploadBtn">Upload</button><br/><br/>
 <img src={{imgUrl}} width="500">
 <div *ngIf="error">Some Error Occured</div>
-<!-- <button (click)="getInvoicesFromPaypal()">get invoices</button>
-<button (click)="orderItem()">Order Item</button>
-<button (click)="submitOrder()">Submit Order</button> -->
 <a [routerLink]="['/home']">Home</a>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Pay</button>
 
-<!-- The Modal -->
 <div class="modal fade" id="myModal">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
 
-      <!-- Modal Header -->
       <div class="modal-header">
         <ul class="nav nav-pills">
           <li class="nav-item">
@@ -33,15 +28,11 @@ Please Choose one: <input type="file" accept="image/png, image/jpeg, image/jpg" 
         </ul>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-
-      <!-- Modal body -->
       <div class="modal-body tab-content">
         <div id="card" class="container tab-pane active">
           <form id="payment-form" class="card-payment-form">
             <div id="card-element">
-              <!-- Elements will create input elements here -->
             </div>
-            <!-- We'll put the error messages in this element -->
             <div id="card-errors" role="alert"></div>
             <button id="submit" class="btn btn-primary submit"> Pay</button>
           </form>
@@ -64,11 +55,10 @@ Please Choose one: <input type="file" accept="image/png, image/jpeg, image/jpg" 
           <div id="paypalForPayment"></div>          
         </div>
       </div>
-      <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
 
     </div>
   </div>
-</div>
+</div> -->

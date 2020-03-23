@@ -5,9 +5,9 @@ import { PrintImgComponent } from './component/print-img/print-img.component';
 import { HomeComponent } from './component/home/home.component';
 
 let route: Routes = [
-  { path: '', redirectTo:'poc', pathMatch: 'full' },
-  { path: 'poc', component: PrintImgComponent, pathMatch: 'full' },
+  { path: '', redirectTo:'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, pathMatch: 'full' },  
+  { path: 'poc', component: PrintImgComponent, pathMatch: 'full' },  
 ];
 
 @NgModule({

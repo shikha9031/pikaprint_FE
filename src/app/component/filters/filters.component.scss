@@ -1,0 +1,43 @@
+.carousel-wrapper{
+    width: 90%;
+    margin: 0 auto;
+    .item{
+        margin-right: 20px;
+        text-align: center;
+        .thumbnail-image{
+            position: relative;
+            .filter-img{
+                border-radius: 4px;
+                cursor: pointer;                
+                &.selected-item{
+                    background: #211F78;
+                    opacity: 0.5;
+                }
+            }
+            .shadow-img{
+                width: 100%;
+                height: 81%;
+                background: #211F78;
+                top: 0;
+                position: absolute;
+                border-radius: 4px;
+                opacity: 0.5;
+            }
+            .tick-sign{
+                width: 32px;
+                height: 32px;
+                position: absolute;
+                top: 28%;
+                left: 39%;
+            }
+            .filter-name{
+                font-style: normal;
+                font-weight: 500;
+                font-size: 15px;
+                line-height: 12px;        
+                color: #5A5C66;
+                margin-top: 16px;
+            }
+        }
+    }
+}

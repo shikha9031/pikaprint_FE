@@ -1,0 +1,66 @@
+.header-container{
+    padding: 42px 40px;
+    width: 100%;
+    box-sizing: border-box;
+    .logo{
+        width: 100%;
+        position: relative;
+        .icon{
+            position: relative;
+          .menu-bar{
+            cursor: pointer;
+            position: absolute;
+            top: 6px;
+          }
+          .pikaprint-img{
+            position: absolute;
+            top: -7px;
+            left: 66px;
+          }
+        }
+        .menu-container{
+            width: 98%;
+            .options-wrapper{
+                text-align: center;
+                .list{
+                    display: inline-block;
+                    margin-right: 45px;
+                    cursor: pointer;
+                    .menu-icon{
+                        display: inline-block;
+                    }
+                    .menu-title{
+                        display: inline-block;
+                        font-family: 'IBM Plex Sans', sans-serif;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 20px;
+                        line-height: 24px;
+                        vertical-align: top;
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+        .basket{
+            position: absolute;
+            right: 14px;
+            top: 0;
+            cursor: pointer;
+            .print-count{
+                background: #5D7CD0;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 18px;
+                color: #ffffff;
+                text-align: center;
+                border-radius: 50%;
+                position: relative;
+                top: 8px;
+                right: -18px;
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+}

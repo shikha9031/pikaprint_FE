@@ -1,0 +1,10 @@
+<div class="carousel-wrapper" *ngIf="printObj.showPrintOptions" >
+  <owl-carousel [options]="{items: 9, dots: true, navigation: true}" [items]="prints" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+    <div class="item" *ngFor="let image of prints;let i = index" width="80px">
+      <div class="thumbnail-image">
+          <div class="print-type" (click)="selectItem(i)"><img src="/assets/image/canvas.svg"></div>
+          <div class="print-type-name">Classic frame</div>
+      </div>
+  </div>
+  </owl-carousel>
+</div>
