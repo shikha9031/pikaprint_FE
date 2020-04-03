@@ -1,0 +1,86 @@
+<div class="checkout-wrapper">
+    <div class="header">
+        <div class="title">Checkout</div>
+        <div class="close" (click)="closeCheckoutForm()"> Close <img src="/assets/image/chevron_right.svg" class="right-arrow"></div>
+    </div>
+    <div class="checkout-body">
+        <ng-container *ngIf="!creditCardSelected">
+            <label class="container payment-option" (click)="creditCardSelected = true">
+                <div class="payment-option-type">Credit Card</div>
+                <input type="radio" [(ngModel)]="RadioBtnvalue" value="credit_card"  name="radio" >
+                <span class="checkmark"></span>
+            </label>
+            <label class="container payment-option">
+                <div class="payment-option-type">Paypal</div>
+                <input type="radio"  [(ngModel)]="RadioBtnvalue" value="paypal" name="radio" >
+                <span class="checkmark"></span>
+            </label>
+            <label class="container payment-option">
+                <div class="payment-option-type">Apple Pay</div>
+                <input type="radio"  [(ngModel)]="RadioBtnvalue" value="applyPay" name="radio">
+                <span class="checkmark"></span>
+            </label>
+        </ng-container>
+        <ng-container *ngIf="creditCardSelected">
+            <div class="credit-card-payment">
+                <div class="card-header">
+                    <label class="container">
+                            <div class="payment-option-type">Credit Card</div>
+                            <input type="radio"  name="radio" checked="checked">
+                            <span class="checkmark credit-card-checkmark"></span>
+                    </label> 
+                    <div class="cross" (click)="closeCreditCardForm()">
+                            <img src="/assets/image/cross.svg">
+                    </div>
+                </div>
+                <form>
+                    <div class="form-row">
+                        <input type="text" placeholder="Card number">
+                    </div>
+                    <div class="card-expiry">
+                        <div class="form-row">
+                            <input type="text" placeholder="Expiry date">
+                        </div>
+                        <div class="form-row">
+                            <input type="text" placeholder="CVC/CVV">
+                        </div>
+                    </div>
+                    <div >
+                        <button type="submit" class="submit">Pay &euro; 32,20</button>
+                    </div>
+                </form>
+            </div>
+        </ng-container>
+        <div class="order-summary-wrapper">
+            <div class="order-summary-title">Order Summary</div>
+            <div class="each-row">
+                <div class="desc">Canvas frame</div>
+                <div class="price">&euro; 28,50 </div>
+            </div>
+            <div class="each-row">
+                <div class="desc">Standard shipping</div>
+                <div class="price">&euro; 3,50</div>
+            </div>
+            <div class="border"></div>
+            <div class="each-row total">
+                <div class="desc">Total</div>
+                <div class="price">&euro; 32,20</div>
+            </div>
+        </div>
+        <div class="address">
+            <div class="address-title">Your address</div>
+            <div class="list">
+                <div class="title">Name</div>
+                <div class="value">Kris Krukkert</div>
+            </div>
+            <div class="list">
+                <div class="title">Email</div>
+                <div class="value">krisNed101@gmail.com</div>
+            </div>
+            <div class="list">
+                <div class="title">Address</div>
+                <div class="value">Streetname 12, 1234 AB, City, Netherlands</div>
+            </div>
+        </div>
+    </div>
+</div>

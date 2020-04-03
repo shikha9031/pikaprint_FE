@@ -3,6 +3,10 @@
     <div class="item" *ngFor="let image of prints;let i = index" width="80px">
       <div class="thumbnail-image">
           <div class="print-type" (click)="selectItem(i)"><img src="/assets/image/canvas.svg"></div>
+          <ng-container *ngIf="selectedIndex == i">
+              <div class="shadow-img"></div>
+              <div class="tick-sign"><img src="/assets/image/tick-sign.svg"></div>
+          </ng-container>
           <div class="print-type-name">Classic frame</div>
       </div>
   </div>

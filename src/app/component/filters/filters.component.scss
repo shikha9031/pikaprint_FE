@@ -9,10 +9,6 @@
             .filter-img{
                 border-radius: 4px;
                 cursor: pointer;                
-                &.selected-item{
-                    background: #211F78;
-                    opacity: 0.5;
-                }
             }
             .shadow-img{
                 width: 100%;

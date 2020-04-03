@@ -1,0 +1,49 @@
+<div class="address-wrapper">
+  <div class="header">
+    <div class="title">Address</div>
+    <div class="close" (click)="closeAddForm()"> Close <img src="/assets/image/chevron_right.svg" class="right-arrow"></div>
+  </div>
+  <div class="user-add" >
+    <form (ngSubmit)="submitForm()" #f1="ngForm">
+      <div class="form-field" [class.add-height]="showMore">
+        <div class="field">
+          <input type="text" [(ngModel)]="addressFormObj.firstname" ngModel="Firstname" name="Firstname" placeholder="Firstname" required
+            autocomplete="off">
+        </div>
+        <div class="field">
+          <input type="text" name="email" [(ngModel)]="addressFormObj.email" ngModel="email" required placeholder="Email" autocomplete="off">
+        </div>
+        <div class="field">
+          <input type="text" [(ngModel)]="addressFormObj.phone_number" ngModel="phone_number" required name="phone_number" placeholder="Phonenumber"
+            autocomplete="off">
+        </div>
+        <div class="field">
+          <input type="text" [(ngModel)]="addressFormObj.Streetname" ngModel="Streetname" required name="Streetname" placeholder="Streetname"
+            autocomplete="off">
+        </div>
+        <div class="more-add">
+          <div class="add-sign" (click)="showMoreFeilds()">
+            <div class="horizontal-line"></div>
+            <div class="vertical-line" *ngIf="!showMore"></div>
+          </div>
+          <div class="house-add">Apartment,building,floor etc.</div>
+        </div>
+        <ng-container *ngIf="showMore">
+          <div class="field"><input type="text" [(ngModel)]="addressFormObj.apartment" ngModel="apartment" name="apartment" placeholder="Apartment"
+              autocomplete="off"></div>
+          <div class="field"><input type="text" [(ngModel)]="addressFormObj.building" ngModel="building" name="building" placeholder="Building"
+              autocomplete="off"></div>
+          <div class="field"><input type="text" [(ngModel)]="addressFormObj.floor" ngModel="floor" name="floor" placeholder="Floor" autocomplete="off"></div>
+        </ng-container>
+        <div class="field"><input type="text" [(ngModel)]="addressFormObj.city" ngModel="city" required name="city" placeholder="City" autocomplete="off"></div>
+        <div class="field"><input type="text" [(ngModel)]="addressFormObj.pincode" ngModel="pincode" required name="pincode" placeholder="pincode"
+            autocomplete="off"></div>
+        <div class="field"> <input type="text" [(ngModel)]="addressFormObj.country" ngModel="country" required name="country" placeholder="country"
+            autocomplete="off"></div>
+      </div>
+      <div class="save-btn">
+      <button type="submit" class="save" [disabled]="!f1.valid" [class.disable]="!f1.valid" [class.enable]="f1.valid">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

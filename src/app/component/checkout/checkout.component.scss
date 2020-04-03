@@ -1,0 +1,241 @@
+.checkout-wrapper{
+    .header{
+        padding: 0 40px;
+        .title{
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 31px;
+            display: inline-block;
+            color: #000000;
+            vertical-align: bottom;
+        }
+        .close{
+            background: #F8FAFD;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
+            color: #35373E;
+            padding: 6px 13px 13px 21px;;
+            float: right;
+            cursor: pointer;
+            .right-arrow{
+                width: 24px;
+                height: 24px;
+                position: relative;
+                top: 7px;
+            }
+        }
+    }
+    .checkout-body{
+        padding: 0 40px;
+        margin: 40px 0;
+        overflow-y: auto;
+        height: calc(100vh - 145px);
+        .container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 28px;
+            color: #131417;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+          }
+          .cross{
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+          }
+          .payment-option{
+            border: 1px solid #DADEE6;
+            box-sizing: border-box;
+            border-radius: 4px;
+            padding: 12px 24px;
+            .payment-option-type{
+                margin-left: 39px;
+                margin-left: 39px;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 18px;
+                color: #A2A6B2;
+            }
+          }
+          
+          /* Hide the browser's default radio button */
+          .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+          }
+          
+          /* Create a custom radio button */
+          .checkmark {
+            position: absolute;
+            top: 13px;
+            left: 23px;
+            height: 24px;
+            width: 24px;
+            border: 2px solid #DADEE6;
+            border-radius: 50%;
+            &.credit-card-checkmark{
+              top: 0px !important;
+              left: 0px !important;
+            }
+          }
+          
+          /* When the radio button is checked, add a blue background */
+          .container input:checked ~ .checkmark {
+            background-color: #131417;
+            border: 2px solid #131417;
+          }
+          
+          /* Create the indicator (the dot/circle - hidden when not checked) */
+          .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+          }
+          
+          /* Show the indicator (dot/circle) when checked */
+          .container input:checked ~ .checkmark:after {
+            display: block;
+          }
+          
+          /* Style the indicator (dot/circle) */
+          .container .checkmark:after {
+            top: 7px;
+            left: 7px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white
+          }
+          .credit-card-payment{
+            border: 1px solid #DADEE6;
+            box-sizing: border-box;
+            border-radius: 4px;
+            padding: 24px 30px 30px;
+              .card-header{
+                position: relative;
+                  .container{
+                    .payment-option{
+                        padding: 20px;
+                      }
+                  }
+              }
+              form{
+                margin-top: 20px;
+                  .form-row{
+                    border-radius: 4px;
+                    border-bottom: 1px solid #DADEE6;
+                    line-height: 28px;
+                    margin-bottom: 30px;
+                        input{
+                          border: none;
+                          outline: none;
+                          font-weight: 500;
+                          font-size: 18px;
+                          color: #131417;
+                          width: 100%;
+                          &::placeholder{
+                              font-weight: 500;
+                              font-size: 18px;
+                              line-height: 28px;
+                              color: #A2A6B2;;
+                          }
+                      }
+                  }
+                  .form-row:focus-within {
+                    border-bottom: 2px solid #131417;;
+                }
+                .submit{
+                  background: #4F6EC3;
+                  color: #FFFFFF;
+                  cursor: pointer;
+                  width: 100%;
+                  border: none;
+                  padding: 16px 0;
+                  font-weight: 500;
+                  font-size: 20px;
+                  line-height: 24px;
+                  color: #FFFFFF;
+                }
+                  .card-expiry{
+                    width: 100%;
+                    .form-row{
+                        width: 48%;
+                        display: inline-block;
+                        margin-right: 3%;
+                        &:last-of-type{
+                            margin-right: 0px;
+                        }
+                    }
+                  }
+              }
+          }
+          .order-summary-wrapper{
+            margin-top: 30px;
+              .order-summary-title{
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 24px;
+                color: #131417;
+                margin-bottom: 10px;                
+              }
+              .each-row{
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 32px;
+                color: #7F828E;
+                .desc{
+                    display: inline-block;
+                }
+                .price{
+                    float: right;
+                }
+                &.total{
+                    color: #131417;
+                }
+              }
+              .border{
+                border: 1px solid #DADEE6;
+                margin: 13px 0;                
+              }
+          }
+          .address{
+              .address-title{
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 24px;
+                color: #131417;
+                margin-bottom: 10px; 
+                margin-top: 15px;
+              }
+              .list{
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 32px;
+                color: #7F828E;
+                  .title{
+                    display: inline-block;
+                    width: 30%;
+                  }
+                  .value{
+                    float: right;
+                    width: 70%;
+                  }
+              }
+          }
+    }
+}

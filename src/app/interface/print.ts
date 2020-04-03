@@ -1,6 +1,6 @@
 export interface Print{
     imgUrl:string;
     title:string;
-    index:number;
+    printFrameURl:string;
     showPrintOptions:boolean;
 }    

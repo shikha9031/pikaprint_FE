@@ -31,6 +31,8 @@ export class FiltersComponent implements OnInit {
         loop:true,
         margin:10,
         responsiveClass:true,
+        nav: true,
+        navText:['&#x27;','next&#x27;','&#x27;','prev&#x27;'],
         responsive:{
             0:{
                 items:1,

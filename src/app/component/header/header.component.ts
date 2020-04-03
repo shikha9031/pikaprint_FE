@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+
 import * as filterRef from '../../store/action/filter.action'; 
 import * as printRef from '../../store/action/print.action';
+import * as imgUploadRef from '../../store/action/image.action';
+import * as basketRef from '../../store/action/basket.action';
+
+import { UploadImage } from '../../interface/img';
+import { Filter } from '../../interface/filter';
 
 @Component({
   selector: 'header',
@@ -17,12 +23,22 @@ export class HeaderComponent implements OnInit {
 
   constructor( private _store:Store<any> ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this._store.select('imgReducer').subscribe((res:UploadImage)=>{
+      if(res){
+        this.imageClick = res.openTab;
+      }
+    })
+    this._store.select('filterReducer').subscribe((res:Filter)=>{
+      if(res) this.filterClick = res.showFilter;
+    })
+  }
 
   uploadImage(){
     this.imageClick = true;
     this.filterClick = false;
     this.printClick = false;
+    this._store.dispatch(new imgUploadRef.ImgTabOpen(true));        
     this._store.dispatch(new filterRef.FilterOptionsToggle(false));    
     this._store.dispatch(new printRef.PrintImgSectionToggle(false));
   }
@@ -30,14 +46,19 @@ export class HeaderComponent implements OnInit {
     this.filterClick = true;
     this.imageClick = false;
     this.printClick = false;
+    this._store.dispatch(new imgUploadRef.ImgTabOpen(false));            
     this._store.dispatch(new filterRef.FilterOptionsToggle(true));
     this._store.dispatch(new printRef.PrintImgSectionToggle(false));    
   }
   printImg(){
     this.printClick = true;
     this.filterClick = false;
-    this.imageClick = false;    
+    this.imageClick = false;   
+    this._store.dispatch(new imgUploadRef.ImgTabOpen(false));                
     this._store.dispatch(new filterRef.FilterOptionsToggle(false));    
     this._store.dispatch(new printRef.PrintImgSectionToggle(true));    
+  }
+  openCart(){
+    this._store.dispatch(new basketRef.OpenCart(true));
   }
 }

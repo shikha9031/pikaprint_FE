@@ -1,25 +1,65 @@
 <div class="home-wrapper" [class.home-wrapper-border]="!imageSrc">
-    <ng-container *ngIf="!showLoader && !imageSrc">
-        <div class="cloud"><img src="/assets/image/cloud.svg" ></div>
-        <div class="up-arrow"><img src="/assets/image/up-arrow.svg" ></div>
-        <div class="image-icon"><img src="/assets/image/image-icon-grey.svg" ></div>  
-        <div class="pick-img-button" (click)="uploadImage()" >
-            <div style="height:0px;overflow:hidden">
-                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" accept="image/x-png,image/gif,image/jpeg" />
+    <ng-container *ngIf="!showLoader && uploadImg && uploadImgContainer">
+        <div class="cloud">
+            <div> <img src="/assets/image/cloud.svg"></div>
+        </div>
+        <div class="up-arrow">
+            <div><img src="/assets/image/up-arrow.svg"></div>
+        </div>
+        <div class="image-icon">
+            <div><img src="/assets/image/image-icon-grey.svg"></div>
+        </div>
+        <div class="pick-img-button" (click)="uploadImage()">
+            <div>
+                <div style="height:0px;overflow:hidden">
+                    <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" accept="image/x-png,image/gif,image/jpeg"
+                    />
+                </div>
+                <div class="img"><img src="/assets/image/cloud_upload.svg"></div>
+                <span class="btn-txt">Pick an image</span>
             </div>
-            <div class="img"><img src="/assets/image/cloud_upload.svg"></div>
-            <span class="btn-txt">Pick an image</span>
-        </div> 
+        </div>
     </ng-container>
-    <div *ngIf="imageSrc" class="uploaded-img-wrapper">
-        <img [src]="imageSrc" class="img-size" >
+    <ng-container *ngIf="!uploadImg && !imageSrc">
+        Please go to Image tab and upload image
+    </ng-container>
+
+    <div *ngIf="(printFrameurl == '' || filterClick) && printImgUrl && !uploadImg" class="uploaded-img-wrapper">
+        <img [src]="printImgUrl" class="img-size">
     </div>
-    <div *ngIf="showLoader" class="upload-img-wrapper">         
+
+    <ng-container *ngIf="printFrameurl != '' && !filterClick && !uploadImg">
+        <div class="uploaded-frame-wrapper">
+            <img [src]="printFrameurl" class="frame-size">
+            <img [src]="printImgUrl" class="img-inside-frame">
+        </div>
+    </ng-container>
+
+    <div *ngIf="showLoader">
+        <div class="loader-wrapper">
             <div class="title">Uploading image</div>
             <div id="progressBar">
-                    <div class=""></div>
+                <div class=""></div>
             </div>
-    </div> 
+        </div>
+    </div>
 </div>
-<filters></filters>
-<print-catalog></print-catalog>
+<div *ngIf="imgArray.length > 0 && uploadImg && !uploadImgContainer" class="uploaded-pictures">
+    <div class="title">Images</div>
+    <div class="pictures">
+        <div class="add-img-wrapper">
+            <div class="add-img" (click)="uploadImgFun()">
+                <div class="horizontal-line"></div>
+                <div class="vertical-line"></div>
+            </div>
+            <div class="upload-img-title">Upload a new image</div>
+        </div>
+        <div *ngFor="let list of imgArray" class="images">
+            <img [src]="list">
+            <div class="filters"><img src = "/assets/image/applied-filters.svg"></div> &nbsp;
+            <span class="applied-filter-count">4 filters</span>
+        </div>
+    </div>
+</div>
+<filters *ngIf="printImgUrl"></filters>
+<print-catalog *ngIf="printImgUrl"></print-catalog>
