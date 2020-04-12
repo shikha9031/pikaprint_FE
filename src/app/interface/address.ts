@@ -1,5 +1,5 @@
 export interface Address{
-    firstname:string;
+    name:string;
     email:string;
     phone_number:string;
     Streetname:string;

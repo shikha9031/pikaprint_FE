@@ -1,20 +1,20 @@
 <div class="address-wrapper">
   <div class="header">
     <div class="title">Address</div>
-    <div class="close" (click)="closeAddForm()"> Close <img src="/assets/image/chevron_right.svg" class="right-arrow"></div>
+    <div class="close" (click)="closeAddForm()"> Back<img src="/assets/image/chevron_right.svg" class="right-arrow"></div>
   </div>
   <div class="user-add" >
     <form (ngSubmit)="submitForm()" #f1="ngForm">
-      <div class="form-field" [class.add-height]="showMore">
+      <div class="form-field add-height" >
         <div class="field">
-          <input type="text" [(ngModel)]="addressFormObj.firstname" ngModel="Firstname" name="Firstname" placeholder="Firstname" required
+          <input type="text" [(ngModel)]="addressFormObj.name" ngModel="name" name="name" placeholder="Name" required
             autocomplete="off">
         </div>
         <div class="field">
-          <input type="text" name="email" [(ngModel)]="addressFormObj.email" ngModel="email" required placeholder="Email" autocomplete="off">
-        </div>
+          <input type="email" [(ngModel)]="addressFormObj.email" minlength="5"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" ngModel="email"  name="email"  required placeholder="Email" autocomplete="off">
+        </div> 
         <div class="field">
-          <input type="text" [(ngModel)]="addressFormObj.phone_number" ngModel="phone_number" required name="phone_number" placeholder="Phonenumber"
+          <input type="text" [(ngModel)]="addressFormObj.phone_number" minlength="10" maxlength="10" pattern="^[0-9()\-+\s]+$" ngModel="phone_number" required name="phone_number" placeholder="Phonenumber"
             autocomplete="off">
         </div>
         <div class="field">
@@ -36,9 +36,9 @@
           <div class="field"><input type="text" [(ngModel)]="addressFormObj.floor" ngModel="floor" name="floor" placeholder="Floor" autocomplete="off"></div>
         </ng-container>
         <div class="field"><input type="text" [(ngModel)]="addressFormObj.city" ngModel="city" required name="city" placeholder="City" autocomplete="off"></div>
-        <div class="field"><input type="text" [(ngModel)]="addressFormObj.pincode" ngModel="pincode" required name="pincode" placeholder="pincode"
+        <div class="field"><input type="text" [(ngModel)]="addressFormObj.pincode" ngModel="pincode" required name="pincode" placeholder="Pincode"
             autocomplete="off"></div>
-        <div class="field"> <input type="text" [(ngModel)]="addressFormObj.country" ngModel="country" required name="country" placeholder="country"
+        <div class="field"> <input type="text" [(ngModel)]="addressFormObj.country" ngModel="country" required name="country" placeholder="Country"
             autocomplete="off"></div>
       </div>
       <div class="save-btn">

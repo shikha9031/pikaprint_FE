@@ -4,6 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { OwlModule } from 'ngx-owl-carousel';
 import { StoreModule } from '@ngrx/store';
 import { FormsModule }   from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material';
+import { ToastrModule } from 'ngx-toastr';
 
 /** service import */
 
@@ -19,6 +22,10 @@ import { imgReducer } from './store/reducer/image.reducer';
 import { addressReducer } from './store/reducer/address.reducer';
 import { checkoutReducer } from './store/reducer/checkout.reducer';
 import { basketReducer } from './store/reducer/basket.reducer';
+import { menuReducer } from './store/reducer/menu.reducer';
+
+/** directive import */
+import{ ClickOutsideDirective } from './directives/clickoutside.directive';
 
 /** component import */
 
@@ -32,6 +39,9 @@ import { PrintImgComponent } from './component/print-img/print-img.component';
 import { HomeComponent } from './component/home/home.component';
 import { HeaderComponent } from './component/header/header.component';
 import { CheckoutComponent } from './component/checkout/checkout.component';
+import { LeftNavComponent } from './component/left-nav/left-nav.component';
+import { UserComponent } from './component/user/user.component';
+import { FeedbackComponent } from './component/feedback/feedback.component';
 
 /** reducer */
 let reducer = {
@@ -40,7 +50,8 @@ let reducer = {
   imgReducer: imgReducer,
   addressReducer: addressReducer,
   checkoutReducer: checkoutReducer,
-  basketReducer: basketReducer
+  basketReducer: basketReducer,
+  menuReducer: menuReducer
 };
 
 @NgModule({
@@ -54,7 +65,11 @@ let reducer = {
     PrintCatalogComponent,
     MyBasketComponent,
     AddressComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ClickOutsideDirective,
+    LeftNavComponent,
+    UserComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -62,11 +77,14 @@ let reducer = {
     HttpClientModule,
     OwlModule,
     StoreModule.forRoot(reducer),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    ToastrModule.forRoot()    
   ],
   providers: [DeepArtService, ApiService],
   bootstrap: [AppComponent],
-  entryComponents:[PaymentModalComponent]
+  entryComponents:[UserComponent]
 })
 export class AppModule {
   constructor(){}

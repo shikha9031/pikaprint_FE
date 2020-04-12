@@ -1,7 +1,7 @@
 <div class="header-container">
   <div class="logo">
       <div class="icon">
-        <img src="/assets/image/Union.svg" class="menu-bar">
+        <img src="/assets/image/Union.svg" class="menu-bar" (click)="openMenu()">
         <img src="/assets/image/Logo.png" class="pikaprint-img">
       </div>
       <div class="menu-container">
@@ -29,7 +29,7 @@
                 </div>
         </div> 
       </div>
-      <div class="basket" (click)="openCart()">
+      <div class="basket" (click)="openCart(); $event.stopPropagation()">
         <div class="print-count">1</div>
         <img src="/assets/image/Basket_icon.svg">
       </div>

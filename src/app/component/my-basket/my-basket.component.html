@@ -1,4 +1,4 @@
-<div class="basket-container" *ngIf="openCart">
+<div class="basket-container" *ngIf="openCart"  (clickOutside)="closeSideNav($event)" (click)="$event.stopPropagation()">
   <ng-container *ngIf="closeAddForm && !checkout">
     <div class="header">
       <img src="/assets/image/black_basket.svg" class="basket-size">
@@ -55,12 +55,10 @@
       </div>
     </div>
   </ng-container>
-
   <ng-container *ngIf="!closeAddForm">
     <app-address></app-address>
   </ng-container>
   <ng-container *ngIf="checkout">
     <app-checkout></app-checkout>
   </ng-container>
-
 </div>

@@ -1,0 +1,60 @@
+<div class="user-wrapper">
+  <ng-container *ngIf="data.type === 'login'">
+    <div class="header">
+      <div class="title">Login</div>
+      <div class="cross" (click)="closeModal()">
+        <img src="/assets/image/cross.svg">
+      </div>
+    </div>
+    <div class="user-add">
+      <form (ngSubmit)="submitLoginForm()" #f1="ngForm">
+        <div class="form-field">
+          <div class="field">
+            <input type="email" [(ngModel)]="login.email" minlength="5" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" ngModel="email"
+              name="email" required placeholder="Email" autocomplete="off">
+          </div>
+          <div class="field">
+            <input type="password" [(ngModel)]="login.password" ngModel="password" name="password" placeholder="Password" required autocomplete="off">
+          </div>
+        </div>
+        <div class="save-btn">
+          <button type="submit" class="save" [disabled]="!f1.valid" [class.disable]="!f1.valid" [class.enable]="f1.valid">Login</button>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="data.type === 'signup'">
+    <form>
+      <div class="header">
+        <div class="title">Signup</div>
+        <div class="cross" (click)="closeModal()">
+          <img src="/assets/image/cross.svg">
+        </div>
+      </div>
+      <div class="user-add">
+        <form (ngSubmit)="submitSignupForm()" #f2="ngForm">
+          <div class="form-field">
+            <div class="field">
+              <input type="text" [(ngModel)]="signupUser.name" ngModel="name" name="name" placeholder="Name" required autocomplete="off">
+            </div>
+            <div class="field">
+              <input type="email" [(ngModel)]="signupUser.email" minlength="5" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" ngModel="email"
+                name="email" required placeholder="Email" autocomplete="off">
+            </div>
+            <div class="field">
+                <input type="text" [(ngModel)]="signupUser.phone_number" minlength="10" maxlength="10" pattern="^[0-9()\-+\s]+$" ngModel="phone_number" required name="phone_number" placeholder="Phonenumber"
+                  autocomplete="off">
+              </div>
+            <div class="field">
+              <input type="password" [(ngModel)]="signupUser.password" ngModel="password" name="password" placeholder="Password" required
+                autocomplete="off">
+            </div>
+          </div>
+          <div class="save-btn">
+            <button type="submit" class="save" [disabled]="!f2.valid" [class.disable]="!f2.valid" [class.enable]="f2.valid">Save</button>
+          </div>
+        </form>
+      </div>
+    </form>
+  </ng-container>
+</div>

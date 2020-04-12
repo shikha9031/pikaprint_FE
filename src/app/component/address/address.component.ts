@@ -17,7 +17,7 @@ export class AddressComponent implements OnInit {
 
   ngOnInit() {
     this.addressFormObj = {
-      firstname:'',
+      name:'',
       email:'',
       phone_number:'',
       Streetname:'',
@@ -38,5 +38,10 @@ export class AddressComponent implements OnInit {
   submitForm(){
     this._store.dispatch(new addressRef.AddressFormData(this.addressFormObj)); 
     this._store.dispatch(new addressRef.CloseAddress(true));    
+  }
+  validateEmail(email){
+    let regExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(regExp.test(email)) return true;
+    return false;
   }
 }

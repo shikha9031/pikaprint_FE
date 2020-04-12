@@ -18,25 +18,25 @@ export class MyBasketComponent implements OnInit {
   openCart: boolean;
   closeAddForm: boolean = true;
   printFrameurl: string;
-  printImgUrl:string;
-  addressFormObj:Address;
-  shippingType:string = 'standard';
-  checkout:boolean = false;
+  printImgUrl: string;
+  addressFormObj: Address;
+  shippingType: string = 'standard';
+  checkout: boolean = false;
 
   constructor(private _store: Store<any>) { }
 
   ngOnInit() {
     this.addressFormObj = {
-      firstname:'',
-      email:'',
-      phone_number:'',
-      Streetname:'',
-      apartment:'',
-      building:'',
-      floor:'',
-      city:'',
-      pincode:'',
-      country:'',
+      name: '',
+      email: '',
+      phone_number: '',
+      Streetname: '',
+      apartment: '',
+      building: '',
+      floor: '',
+      city: '',
+      pincode: '',
+      country: '',
     }
 
     this._store.select('printReducer').subscribe((res: Print) => {
@@ -45,38 +45,41 @@ export class MyBasketComponent implements OnInit {
         this.printImgUrl = res.imgUrl;
       }
     })
-    this._store.select('addressReducer').subscribe((res:AddressForm ) => {
+    this._store.select('addressReducer').subscribe((res: AddressForm) => {
       if (res) {
         this.closeAddForm = res.closeAddForm;
         this.addressFormObj = res.addFormObj;
       }
     })
-    this._store.select('checkoutReducer').subscribe((res:Checkout)=>{
-        if(res){
-          this.checkout = res.closeCheckoutPage;
-        }
-    })
-    this._store.select('basketReducer').subscribe((res:Basket)=>{
-      if(res){
-          this.openCart = res.openBasket;
+    this._store.select('checkoutReducer').subscribe((res: Checkout) => {
+      if (res) {
+        this.checkout = res.closeCheckoutPage;
       }
-  })
+    })
+    this._store.select('basketReducer').subscribe((res: Basket) => {
+      if (res) {
+        this.openCart = res.openBasket;
+      }
+    })
   }
-  
-  addAddressFunc(){
+
+  addAddressFunc() {
     this.closeAddForm = false;
   }
-  radioBtnOption(param){
+  radioBtnOption(param) {
     this.shippingType = param;
   }
-  checkoutFun(){
-    if(this.addressFormObj.email){
+  checkoutFun() {
+    if (this.addressFormObj.email) {
       this.checkout = true;
       this._store.dispatch(new checkoutRef.CheckoutFormClose(true));
     }
   }
 
-  close(){
-    this._store.dispatch(new basketRef.OpenCart(false));    
+  close() {
+    this._store.dispatch(new basketRef.OpenCart(false));
+  }
+  closeSideNav(event) {
+    this.openCart = false;
   }
 }

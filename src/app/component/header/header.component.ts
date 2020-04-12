@@ -5,6 +5,7 @@ import * as filterRef from '../../store/action/filter.action';
 import * as printRef from '../../store/action/print.action';
 import * as imgUploadRef from '../../store/action/image.action';
 import * as basketRef from '../../store/action/basket.action';
+import * as menuRef from '../../store/action/menu.action';
 
 import { UploadImage } from '../../interface/img';
 import { Filter } from '../../interface/filter';
@@ -60,5 +61,8 @@ export class HeaderComponent implements OnInit {
   }
   openCart(){
     this._store.dispatch(new basketRef.OpenCart(true));
+  }
+  openMenu(){
+    this._store.dispatch(new menuRef.OpenSideMenu(true));
   }
 }

@@ -1,0 +1,71 @@
+<div class="left-menu-wrapper" *ngIf="showLeftNav">
+    <ng-container *ngIf="!contactusSec && !feedbackSec">
+        <div class="header">
+            <img src="/assets/image/Logo.png" class="menu-size">
+            <div class="close" (click)="closeMenu()"> Close <img src="/assets/image/chevron_right.svg" class="right-arrow"></div>
+        </div>
+        <div class="menu-body">
+            <div class="list" (click)="openDialog('login')">Login</div>
+            <div class="list" (click)="openDialog('signup')">Signup</div>
+            <div class="list">Track your order</div>
+            <div class="list" (click)="open('contact-us')">Contact us</div>
+            <div class="list" (click)="open('feedback')">Feedback</div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="contactusSec || feedbackSec">
+        <div *ngIf="contactusSec" class="contact-us-wrapper">
+            <div class="header">
+                <div class="title">Contact us</div>
+                <div class="close" (click)="backToNavBtn('contact-us')"> Back <img src="/assets/image/chevron_right.svg" class="right-arrow"></div>
+            </div>
+            <div class="contact-us-body">
+                <div class="row">
+                    <span class="icon"><img src="/assets/image/location-pin.svg" width="20px"></span>
+                    <span class="details">Memane heights above bhagyalaxmi traders, opps. Kumar park infinia, Fursungi, Maharashtra, pincode: 412308 </span>
+                </div>
+                <div class="row">
+                    <span class="icon"><img src="/assets/image/email_icon.svg" width="20px"></span>
+                    <span class="details">shikhamymail101@gmail.com</span>
+                </div>
+                <div class="row">
+                    <span class="icon"><img src="/assets/image/phone.svg" width="20px"></span>
+                    <span class="details">+91 8709545110</span>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="feedbackSec" class="feedback-form">
+            <div class="header">
+                <div class="title">Feedback</div>
+                <div class="close" (click)="backToNavBtn('feedback')"> Back <img src="/assets/image/chevron_right.svg" class="right-arrow"></div>
+            </div>
+            <div class="feedback-body">
+                <form (ngSubmit)="submitFeedback()" #f1="ngForm">
+                <div class="feedback-type">
+                    <label class="container" [ngStyle]="{'color': feedbackObj.type === 'comment'? '#131417' : '#A2A6B2'}">Comment
+                                <input type="radio" checked="checked" name="radio" (click)="radioBtnOption('comment')">
+                                <span class="checkmark"></span>
+                    </label>
+                    <label class="container" [ngStyle]="{'color': feedbackObj.type === 'bug-report'? '#131417' : '#A2A6B2'}">Bug Report 
+                                <input type="radio"  name="radio" (click)="radioBtnOption('bug-report')">
+                                <span class="checkmark"></span>
+                    </label>
+                    <label class="container" [ngStyle]="{'color': feedbackObj.type === 'question'? '#131417' : '#A2A6B2'}">Question
+                                <input type="radio"  name="radio" (click)="radioBtnOption('question')">
+                                <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="feedback-desc">
+                    <textarea rows="8"  placeholder="Description" autocomplete="off" [(ngModel)]="feedbackObj.desc" ngModel="desc" name="desc" required></textarea>
+                </div>
+                <div class="field">
+                    <input type="text" name="name" placeholder="Name" autocomplete="off" [(ngModel)]="feedbackObj.name" ngModel="name" required>
+                </div>
+                <div class="field">
+                    <input type="email" minlength="5" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email" autocomplete="off" [(ngModel)]="feedbackObj.email" ngModel="email"  name="email"  required>
+                </div>
+                <button type="submit" class="send-feedback" [disabled]="!f1.valid" [class.disable]="!f1.valid" [class.enable]="f1.valid">Send</button>
+                </form>
+            </div>
+        </div>
+    </ng-container>
+</div>

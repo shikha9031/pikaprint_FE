@@ -7,7 +7,7 @@ export const addressObj: Address = {
     city:'',
     country:'',
     email:'',
-    firstname:'',
+    name:'',
     floor:'',
     phone_number:'',
     pincode:'',
