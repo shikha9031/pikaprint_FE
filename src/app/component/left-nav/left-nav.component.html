@@ -5,11 +5,14 @@
             <div class="close" (click)="closeMenu()"> Close <img src="/assets/image/chevron_right.svg" class="right-arrow"></div>
         </div>
         <div class="menu-body">
-            <div class="list" (click)="openDialog('login')">Login</div>
-            <div class="list" (click)="openDialog('signup')">Signup</div>
-            <div class="list">Track your order</div>
+            <div class="list" (click)="openDialog('login')" *ngIf="!loginFlag">Login</div>
+            <div class="list" (click)="openDialog('signup')" *ngIf="!loginFlag">Signup</div>
+            <div class="list" [routerLink]="['/home']" (click)="showLeftNav = false; homeClick()">Home</div>
+            <div class="list" [routerLink]="['/about-us']" (click)="showLeftNav = false; aboutusClick()">About us</div>            
+            <div class="list" *ngIf="loginFlag">Track your order</div>
             <div class="list" (click)="open('contact-us')">Contact us</div>
             <div class="list" (click)="open('feedback')">Feedback</div>
+            <div class="list" (click)="logout()" *ngIf="loginFlag">Logout</div>            
         </div>
     </ng-container>
     <ng-container *ngIf="contactusSec || feedbackSec">
@@ -25,7 +28,7 @@
                 </div>
                 <div class="row">
                     <span class="icon"><img src="/assets/image/email_icon.svg" width="20px"></span>
-                    <span class="details">shikhamymail101@gmail.com</span>
+                    <span class="details">pikaprintemailservice@zohomail.com</span>
                 </div>
                 <div class="row">
                     <span class="icon"><img src="/assets/image/phone.svg" width="20px"></span>
@@ -54,14 +57,14 @@
                                 <span class="checkmark"></span>
                     </label>
                 </div>
-                <div class="feedback-desc">
-                    <textarea rows="8"  placeholder="Description" autocomplete="off" [(ngModel)]="feedbackObj.desc" ngModel="desc" name="desc" required></textarea>
+                <div class="feedback-desc form-group">
+                    <textarea rows="8" class="form-control shadow-none" placeholder="Description" autocomplete="off" [(ngModel)]="feedbackObj.desc" ngModel="desc" name="desc" required></textarea>
                 </div>
-                <div class="field">
-                    <input type="text" name="name" placeholder="Name" autocomplete="off" [(ngModel)]="feedbackObj.name" ngModel="name" required>
+                <div class="field form-group">
+                    <input type="text" class="form-control shadow-none" name="name" placeholder="Name" autocomplete="off" [(ngModel)]="feedbackObj.name" ngModel="name" required>
                 </div>
-                <div class="field">
-                    <input type="email" minlength="5" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email" autocomplete="off" [(ngModel)]="feedbackObj.email" ngModel="email"  name="email"  required>
+                <div class="field form-group">
+                    <input type="email" class="form-control shadow-none" minlength="5" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email" autocomplete="off" [(ngModel)]="feedbackObj.email" ngModel="email"  name="email"  required>
                 </div>
                 <button type="submit" class="send-feedback" [disabled]="!f1.valid" [class.disable]="!f1.valid" [class.enable]="f1.valid">Send</button>
                 </form>

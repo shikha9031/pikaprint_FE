@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
 
-import * as filterRef from '../../store/action/filter.action'; 
+import * as filterRef from '../../store/action/filter.action';
 import * as printRef from '../../store/action/print.action';
 import * as imgUploadRef from '../../store/action/image.action';
 import * as basketRef from '../../store/action/basket.action';
@@ -18,51 +19,60 @@ import { Filter } from '../../interface/filter';
 export class HeaderComponent implements OnInit {
 
   /** menu variable declaration */
-  imageClick:boolean = true;
-  filterClick:boolean = false;
-  printClick:boolean = false;
+  imageClick: boolean = true;
+  filterClick: boolean = false;
+  printClick: boolean = false;
+  menuShow: boolean = true;
 
-  constructor( private _store:Store<any> ) { }
+  constructor(private _store: Store<any>, private router: Router) { }
 
   ngOnInit() {
-    this._store.select('imgReducer').subscribe((res:UploadImage)=>{
-      if(res){
+
+    this._store.select('imgReducer').subscribe((res: UploadImage) => {
+      if (res) {
         this.imageClick = res.openTab;
       }
     })
-    this._store.select('filterReducer').subscribe((res:Filter)=>{
-      if(res) this.filterClick = res.showFilter;
+
+    this._store.select('filterReducer').subscribe((res: Filter) => {
+      if (res) this.filterClick = res.showFilter;
+    })
+
+    this._store.select('commonReducer').subscribe(res => {
+      if (res) {
+        this.menuShow = res.isMenuOpen;
+      }
     })
   }
 
-  uploadImage(){
+  uploadImage() {
     this.imageClick = true;
     this.filterClick = false;
     this.printClick = false;
-    this._store.dispatch(new imgUploadRef.ImgTabOpen(true));        
-    this._store.dispatch(new filterRef.FilterOptionsToggle(false));    
+    this._store.dispatch(new imgUploadRef.ImgTabOpen(true));
+    this._store.dispatch(new filterRef.FilterOptionsToggle(false));
     this._store.dispatch(new printRef.PrintImgSectionToggle(false));
   }
-  filterImage(){
+  filterImage() {
     this.filterClick = true;
     this.imageClick = false;
     this.printClick = false;
-    this._store.dispatch(new imgUploadRef.ImgTabOpen(false));            
+    this._store.dispatch(new imgUploadRef.ImgTabOpen(false));
     this._store.dispatch(new filterRef.FilterOptionsToggle(true));
-    this._store.dispatch(new printRef.PrintImgSectionToggle(false));    
+    this._store.dispatch(new printRef.PrintImgSectionToggle(false));
   }
-  printImg(){
+  printImg() {
     this.printClick = true;
     this.filterClick = false;
-    this.imageClick = false;   
-    this._store.dispatch(new imgUploadRef.ImgTabOpen(false));                
-    this._store.dispatch(new filterRef.FilterOptionsToggle(false));    
-    this._store.dispatch(new printRef.PrintImgSectionToggle(true));    
+    this.imageClick = false;
+    this._store.dispatch(new imgUploadRef.ImgTabOpen(false));
+    this._store.dispatch(new filterRef.FilterOptionsToggle(false));
+    this._store.dispatch(new printRef.PrintImgSectionToggle(true));
   }
-  openCart(){
+  openCart() {
     this._store.dispatch(new basketRef.OpenCart(true));
   }
-  openMenu(){
+  openMenu() {
     this._store.dispatch(new menuRef.OpenSideMenu(true));
   }
 }

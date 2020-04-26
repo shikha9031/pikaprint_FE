@@ -23,7 +23,7 @@
             display: inline-block;
             color: #000000;
             margin-left: 12px;
-            vertical-align: bottom;
+            vertical-align: top;
         }
         .close{
             background: #F8FAFD;
@@ -32,17 +32,51 @@
             font-size: 20px;
             line-height: 24px;
             color: #35373E;
-            padding: 6px 13px 13px 21px;;
+            padding: 9px 13px 9px 21px;
             float: right;
             cursor: pointer;
             .right-arrow{
                 width: 24px;
                 height: 24px;
                 position: relative;
-                top: 7px;
             }
         }
     }
+    .no-items-added{
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 30%;
+        bottom: 0;
+        margin: auto;
+        text-align: center;
+        padding: 0 40px;       
+        .sad-smiley{
+            font-size: 100px;
+        }
+        .cart-empty{
+            font-size: 18px;
+            margin-top: 24px;
+        }
+        .add-items{
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        .add-item-btn{
+            background: #4F6EC3;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 36px;
+            text-align: center;
+            letter-spacing: 0.01em;
+            color: #FFFFFF;
+            margin-top: 25px;
+            padding: 8px 0 10px;
+            cursor: pointer;
+        }
+    }
+   
     .items-list-container{
         padding: 0 40px;
         height: calc(100vh - 283px);
@@ -147,7 +181,7 @@
                             height: 12px;
                             position: relative;
                             display: inline-block;
-                            top: 21%;
+                            top: 16%;
                             left: 15px;
                         }
                         .vertical-line{
@@ -157,8 +191,8 @@
                             display: inline-block;
                             position: relative;
                             right: 6px;
-                            top: 21%;
-                            left: 10px;
+                            top: 17%;
+                            left: 9px;
                         }
                     }
                 }
@@ -263,8 +297,8 @@
               
               /* Style the indicator (dot/circle) */
               .container .checkmark:after {
-                top: 7px;
-                left: 7px;
+                top: 5px;
+                left: 5px;
                 width: 10px;
                 height: 10px;
                 border-radius: 50%;
@@ -283,7 +317,7 @@
                 text-align: center;
                 color: #131417;
                 padding: 16px;
-                width: 40%;
+                width: 47%;
             }
             .checkout{
                 margin-left: 20px;

@@ -17,6 +17,7 @@
             <input type="password" [(ngModel)]="login.password" ngModel="password" name="password" placeholder="Password" required autocomplete="off">
           </div>
         </div>
+        <div class="forgot-pass" (click)="forgotPass()"><span>Forgot Password</span></div>
         <div class="save-btn">
           <button type="submit" class="save" [disabled]="!f1.valid" [class.disable]="!f1.valid" [class.enable]="f1.valid">Login</button>
         </div>
@@ -41,10 +42,10 @@
               <input type="email" [(ngModel)]="signupUser.email" minlength="5" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" ngModel="email"
                 name="email" required placeholder="Email" autocomplete="off">
             </div>
-            <div class="field">
+            <!-- <div class="field">
                 <input type="text" [(ngModel)]="signupUser.phone_number" minlength="10" maxlength="10" pattern="^[0-9()\-+\s]+$" ngModel="phone_number" required name="phone_number" placeholder="Phonenumber"
                   autocomplete="off">
-              </div>
+              </div> -->
             <div class="field">
               <input type="password" [(ngModel)]="signupUser.password" ngModel="password" name="password" placeholder="Password" required
                 autocomplete="off">
@@ -56,5 +57,26 @@
         </form>
       </div>
     </form>
+  </ng-container>
+  <ng-container *ngIf="data.type === 'forgot-password'">
+    <div class="header">
+      <div class="title">Forgot Password</div>
+      <div class="cross" (click)="closeModal()">
+        <img src="/assets/image/cross.svg">
+      </div>
+    </div>
+    <div class="user-add">
+      <form (ngSubmit)="updatePassword(email)" #f3="ngForm">
+        <div class="form-field">
+          <div class="field">
+            <input type="email" [(ngModel)]="email" minlength="5" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" ngModel="email"
+              name="email" required placeholder="Email" autocomplete="off">
+          </div>
+        </div>
+        <div class="save-btn">
+          <button type="submit" class="save" [disabled]="!f3.valid" [class.disable]="!f3.valid" [class.enable]="f3.valid">Submit</button>
+        </div>
+      </form>
+    </div>
   </ng-container>
 </div>

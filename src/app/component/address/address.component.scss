@@ -17,14 +17,13 @@
             font-size: 20px;
             line-height: 24px;
             color: #35373E;
-            padding: 6px 13px 13px 21px;;
+            padding: 9px 13px 9px 21px;
             float: right;
             cursor: pointer;
             .right-arrow{
                 width: 24px;
                 height: 24px;
                 position: relative;
-                top: 7px;
             }
         }
     }
@@ -41,10 +40,10 @@
                 margin-top: 25px;
                 border-radius: 4px;
                 height: 28px;
-                border-bottom: 2px solid #DADEE6;
                 input{
                     border: none;
                     outline: none;
+                    border-bottom: 2px solid #DADEE6;
                     font-weight: 500;
                     font-size: 18px;
                     color: #131417;
@@ -53,10 +52,10 @@
                         line-height: 28px;
                         color: #A2A6B2;;
                     }
+                    &:focus{
+                        border-bottom: 2px solid #131417;
+                    }
                 }
-            }
-            .field:focus-within {
-                border-bottom: 2px solid #131417;;
             }
             .more-add{
                 font-weight: 500;
@@ -89,7 +88,7 @@
                         display: inline-block;
                         position: relative;
                         right: 6px;
-                        left: 9px;
+                        left: 8px;
                         top: 1px;
                     }
                 }

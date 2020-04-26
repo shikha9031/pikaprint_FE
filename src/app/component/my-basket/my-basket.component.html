@@ -1,59 +1,67 @@
-<div class="basket-container" *ngIf="openCart"  (clickOutside)="closeSideNav($event)" (click)="$event.stopPropagation()">
+<div class="basket-container" *ngIf="openCart" (clickOutside)="closeSideNav($event)" (click)="$event.stopPropagation()">
   <ng-container *ngIf="closeAddForm && !checkout">
     <div class="header">
       <img src="/assets/image/black_basket.svg" class="basket-size">
       <div class="title">My basket</div>
       <div class="close" (click)="close()"> Close <img src="/assets/image/chevron_right.svg" class="right-arrow"></div>
     </div>
-    <div class="items-list-container" [class.adjust-height]="addressFormObj.email">
-      <div class="items" *ngIf="printFrameurl && printImgUrl">
-        <div class="uploaded-frame-wrapper">
-          <img src="/assets/image/frame_with_img.svg" class="frame-size">
-          <!-- <img [src]="printImgUrl" class="img-inside-frame"> -->
-        </div>
-        <div class="item-desc">
-          <div class="title">Classic frame</div>
-          <div class="size">30 x 40 cm</div>
-          <div class="quantity">Quantity</div>
-        </div>
-        <div class="amount">
-          <div class="total-amount">&euro; 28,50</div>
-          <div class="item-add-remove">
-            <div class="delete"><img src="/assets/image/delete.svg"></div>
-            <span class="total">1</span>
-            <div class="add">
-              <div class="horizontal-line"></div>
-              <div class="vertical-line"></div>
+    <div class="no-items-added" *ngIf="!printFrameurl && !printImgUrl">
+      <div class="sad-smiley">☹</div>
+      <div class="cart-empty">Your cart is empty!</div>
+      <div class="add-items"> Add items to it now.</div>
+      <div class="add-item-btn" [routerLink]="['/home']" (click)="openCart = false">Add Items</div>
+    </div>
+    <ng-container *ngIf="printFrameurl && printImgUrl">
+      <div class="items-list-container" [class.adjust-height]="addressFormObj.email">
+        <div class="items">
+          <div class="uploaded-frame-wrapper">
+            <img src="/assets/image/frame_with_img.svg" class="frame-size">
+            <!-- <img [src]="printImgUrl" class="img-inside-frame"> -->
+          </div>
+          <div class="item-desc">
+            <div class="title">Classic frame</div>
+            <div class="size">30 x 40 cm</div>
+            <div class="quantity">Quantity</div>
+          </div>
+          <div class="amount">
+            <div class="total-amount">&euro; 28,50</div>
+            <div class="item-add-remove">
+              <div class="delete"><img src="/assets/image/delete.svg"></div>
+              <span class="total">1</span>
+              <div class="add">
+                <div class="horizontal-line"></div>
+                <div class="vertical-line"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer">
-      <ng-container *ngIf="!addressFormObj.email">
-        <div class="address-add" (click)="addAddressFunc()">Your address</div>
-        <div class="note">Fill in address information for shipping cost and checkout</div>
-      </ng-container>
-      <ng-container *ngIf="addressFormObj.email">
-        <div class="address-detail">{{addressFormObj.Streetname}}, {{addressFormObj.pincode}},{{ addressFormObj.city}}</div>
-        <div class="shipping-type">
+      <div class="footer">
+        <ng-container *ngIf="!addressFormObj.email">
+          <div class="address-add" (click)="addAddressFunc()">Your address</div>
+          <div class="note">Fill in address information for shipping cost and checkout</div>
+        </ng-container>
+        <ng-container *ngIf="addressFormObj.email">
+          <div class="address-detail">{{addressFormObj.Streetname}}, {{addressFormObj.pincode}},{{ addressFormObj.city}}</div>
+          <div class="shipping-type">
             <div>
-                <label class="container" [ngStyle]="{'color': shippingType == 'standard'? '#131417' : '#A2A6B2'}">Standard shipping € 3,50 
+              <label class="container" [ngStyle]="{'color': shippingType == 'standard'? '#131417' : '#A2A6B2'}">Standard shipping € 3,50 
                     <input type="radio" checked="checked" name="radio" (click)="radioBtnOption('standard')">
                     <span class="checkmark"></span>
                 </label>
-                <label class="container" [ngStyle]="{'color': shippingType == 'international'? '#131417' : '#A2A6B2'}">International tracked € 8,70
+              <label class="container" [ngStyle]="{'color': shippingType == 'international'? '#131417' : '#A2A6B2'}">International tracked € 8,70
                     <input type="radio" name="radio"  (click)="radioBtnOption('international')">
                     <span class="checkmark"></span>
                 </label>
             </div>
+          </div>
+        </ng-container>
+        <div class="total-payable-amount">
+          <div class="total"> Total: &euro; 28,50 </div>
+          <div class="checkout" [class.enable]="addressFormObj.email" (click)="checkoutFun()">Checkout</div>
         </div>
-      </ng-container>
-      <div class="total-payable-amount">
-        <div class="total"> Total: &euro; 28,50 </div>
-        <div class="checkout" [class.enable]="addressFormObj.email" (click)="checkoutFun()">Checkout</div>
       </div>
-    </div>
+    </ng-container>
   </ng-container>
   <ng-container *ngIf="!closeAddForm">
     <app-address></app-address>

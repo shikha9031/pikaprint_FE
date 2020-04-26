@@ -17,14 +17,13 @@
             font-size: 20px;
             line-height: 24px;
             color: #35373E;
-            padding: 6px 13px 13px 21px;;
+            padding: 9px 13px 9px 21px;
             float: right;
             cursor: pointer;
             .right-arrow{
                 width: 24px;
                 height: 24px;
                 position: relative;
-                top: 7px;
             }
         }
     }
@@ -114,8 +113,8 @@
           
           /* Style the indicator (dot/circle) */
           .container .checkmark:after {
-            top: 7px;
-            left: 7px;
+            top: 5px;
+            left: 5px;
             width: 10px;
             height: 10px;
             border-radius: 50%;
@@ -126,7 +125,7 @@
             box-sizing: border-box;
             border-radius: 4px;
             padding: 24px 30px 30px;
-              .card-header{
+              .credit-card-header{
                 position: relative;
                   .container{
                     .payment-option{

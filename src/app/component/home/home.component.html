@@ -61,5 +61,6 @@
         </div>
     </div>
 </div>
-<filters *ngIf="printImgUrl"></filters>
+<div (click)="callphoService()" *ngIf="!uploadImg"><button>poc on pho.to</button></div>
+<!-- <filters *ngIf="printImgUrl"></filters> -->
 <print-catalog *ngIf="printImgUrl"></print-catalog>

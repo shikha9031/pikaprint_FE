@@ -27,14 +27,13 @@
                     font-size: 20px;
                     line-height: 24px;
                     color: #35373E;
-                    padding: 6px 13px 13px 21px;;
+                    padding: 9px 13px 9px 21px;
                     float: right;
                     cursor: pointer;
                     .right-arrow{
                         width: 24px;
                         height: 24px;
                         position: relative;
-                        top: 7px;
                     }
                 }
             }
@@ -147,8 +146,8 @@
                           
                           /* Style the indicator (dot/circle) */
                           .container .checkmark:after {
-                            top: 7px;
-                            left: 7px;
+                            top: 5px;
+                            left: 5px;
                             width: 10px;
                             height: 10px;
                             border-radius: 50%;
@@ -179,7 +178,6 @@
                         margin-top: 25px;
                         border-radius: 4px;
                         height: 28px;
-                        border-bottom: 2px solid #DADEE6;
                         input{
                             border: none;
                             outline: none;
@@ -187,14 +185,15 @@
                             font-size: 18px;
                             color: #131417;
                             width: 100%;
+                            border-bottom: 2px solid #DADEE6;
                             &::placeholder{
                                 line-height: 28px;
-                                color: #A2A6B2;;
+                                color: #A2A6B2;
+                            }
+                            &:focus{
+                                border-bottom: 2px solid #131417;
                             }
                         }
-                    }
-                    .field:focus-within {
-                        border-bottom: 2px solid #131417;;
                     }
                     .send-feedback{
                         border-radius: 4px;
