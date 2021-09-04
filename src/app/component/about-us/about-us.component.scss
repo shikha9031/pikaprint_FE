@@ -1,10 +1,264 @@
 .about-us-container{
-    margin-top: 90px;
-    .row{
-        .img-size{
-            width: 336.28px;
-            height: 482.63px;
+    margin-top: 110px;
+    padding: 0;
+    overflow: hidden;
+    .add-margin{
+        margin: 0 120px;
+        @media(max-width:768px){
+            margin: 0 40px;            
         }
     }
-    
+    .row{
+        .img-size{
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .title{
+            font-style: normal;
+            font-weight: 800;
+            font-size: 36px;
+            line-height: 48px;
+            color: #131417;
+            @media(max-width:768px){
+                font-size: 30px;            
+            }
+        }
+        .filters-title{
+            font-weight: 800;
+            line-height: 48px;
+        }
+        .desc{
+            margin-top: 15px;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 36px;
+            letter-spacing: 0.01em;
+            color: #35373E;
+        }
+        .create-print-btn{
+            background: #4F6EC3;
+            border-radius: 4px;
+            font-style: normal;
+            font-weight: 500;
+            display: inline-block;
+            font-size: 20px;
+            line-height: 36px;
+            text-align: center;
+            width: 188px;
+            height: 54px;
+            letter-spacing: 0.01em;
+            color: #FFFFFF;
+            padding: 8px 0 10px;
+            margin-top: 25px;
+        }
+        .padding-left-0{
+            padding-left: 0;
+            @media(max-width:728px){
+                padding: 0;
+            }
+        }
+        .padding-right-0{
+            padding-right: 0;
+            @media(max-width:728px){
+                margin-top: 20px;
+                padding: 0;
+            }
+        }
+    }
+    .beautiful-filters{
+        margin-top: 50px;
+        .AI-beautiful-filters{
+            padding: 0;
+        }
+        .filter-img{
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+        .images{
+            .remove-extra-space{
+                max-width: 12.666667%;
+                margin-bottom: 10px; 
+                position: relative;
+
+                @media(max-width:1024px){
+                    max-width: 25.666667%;
+                }
+                
+                img{
+                    border-radius: 4px;                    
+                }
+                .first-filter{
+                    background: #FFFFFF;
+                    opacity: 0.4;
+                }
+                .check-mark{
+                    width: 28px;
+                    height: 28px;
+                    position: absolute;
+                    top: 29%;
+                    left: 44%;
+                    @media(max-width:1024px){
+                        top: 25%;
+                        left: 34%;
+                    }
+                }
+            }
+            
+        }
+    }
+    .high-quality-print{
+        background: linear-gradient(117.45deg, #ECEFF5 0.66%, rgba(255, 255, 255, 0) 100%), #DADEE6;
+        border-radius: 4px 0px 0px 4px;
+        margin-top: 50px;
+        padding: 0 65px;
+        @media(max-width:728px){
+            padding: 0 40px;
+        }
+        .column-margin{
+            margin: 144px 0;
+            @media(max-width:728px){
+                margin: 40px 0;
+                padding: 0;
+            }
+            .desc{
+                color: #7F828E;
+            }
+        }
+        .column-margin2{
+            margin-top: 50px;
+            .img-container{
+                img{
+                    width: 100%;
+                }
+                .first-img{
+                    margin-top: 40px;
+                }
+                .drawing{
+                    margin-bottom: 22px;
+                }
+                .middle-img{
+                    img{
+                        object-fit: cover;
+                    }
+                }
+            }
+            .img-bottom-space{
+                margin-bottom: 32px;
+            }
+        }
+        
+    }
+    .steps-for-img{
+        margin-top: 50px;
+        .title{
+            text-align: center;
+            span{
+                width: 50px;
+                height: 50px;
+                background: #F4AE42;
+                border-radius: 48%;
+                display: inline-block;
+            }
+        }
+        .artwork-print-steps{
+            width: 100%;
+            margin: 50px 0;
+            .steps{
+                text-align: center;
+                @media screen and (max-width: 1100px) and (min-width: 728px) {
+                    max-width: 50%;
+                    flex: auto;
+                }
+                @media(max-width:500px){
+                    margin-top: 20px;
+                }
+                .label{
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 24px;
+                    line-height: 44px;
+                    color: #131417;
+                    margin-bottom: 10px;
+                    text-align: left;
+                }
+                .desc{
+                    font-weight: normal;
+                    font-size: 18px;
+                    line-height: 28px;                    
+                    letter-spacing: 0.01em;                    
+                    color: #35373E;
+                    text-align: left;                    
+                }
+                .steps-img{
+                    text-align: left;
+                    img{
+                        width: 250px;
+                        height: 180px;
+                        object-fit: cover;
+                        margin-bottom: 15px;
+                    }
+                    .steps-num{
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 20px;
+                        line-height: 32px;
+                        text-align: center;
+                        letter-spacing: 0.01em;
+                        color: #FFFFFF;
+                        background: #F4AE42;
+                        border-radius: 20px;
+                        width: 36px;
+                        height: 36px;
+                        span{
+                            position: relative;
+                            top: 2px;
+                            left: 1px;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    .create-print-div{
+        background-image: url('/assets/image/mask-group.svg');
+        background-color: #384DB0;
+        height: 160px;
+        width: 100%;
+        background-size: contain;
+        margin: 0;
+        .create-masterpiece{
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            color: #FFFFFF;
+            margin-right: 45px;
+            margin-top: 64px;
+            @media(max-width:500px){
+                margin-top: 10px;
+                text-align: center;
+                padding: 0 10px;
+                margin-right: 0;
+            }
+        }
+        .create-print-btn{
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(28, 24, 108, 0.08);
+            border-radius: 4px;
+            border: none;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 36px;
+            text-align: center;
+            letter-spacing: 0.01em;            
+            color: #384EB0;
+            margin-top: 56px;
+            @media(max-width:500px){
+                margin-top: 0;
+            }
+        }
+    }
 }

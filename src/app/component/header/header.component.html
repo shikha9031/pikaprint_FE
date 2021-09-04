@@ -1,38 +1,73 @@
 <div class="header-container">
-  <div class="logo">
-      <div class="icon">
-        <img src="/assets/image/Union.svg" class="menu-bar" (click)="openMenu()">
-        <img src="/assets/image/Logo.png" class="pikaprint-img">
-      </div>
-      <div class="menu-container">
-        <div class="options-wrapper" *ngIf="menuShow">
-                <div class="list" (click)="uploadImage()">
-                        <div class="menu-icon">
-                             <img src="/assets/image/image-svg.svg" [hidden]="!imageClick">
-                             <img src="/assets/image/image-svg-dark.svg" [hidden]="imageClick">                 
-                        </div>
-                        <div class="menu-title" [ngStyle]="{'color': imageClick ? '#EC575C':'#35373E'}">Images</div> 
+        <div class="logo">
+                <div class="icon">
+                        <img src="/assets/image/Union.svg" class="menu-bar" (click)="openMenu()">
+                        <img src="/assets/image/Logo.png" class="pikaprint-img">
                 </div>
-                <div class="list" (click)="filterImage()">
-                        <div class="menu-icon">
-                            <img src="/assets/image/Filters_icon_dark.svg" [hidden]="filterClick">
-                            <img src="/assets/image/Filters_icon_red.svg" [hidden]="!filterClick">                
+                <div class="menu-container">
+                        <div class="options-wrapper" *ngIf="menuShow">
+                                <div class="list" (click)="uploadImage()">
+                                        <div class="menu-icon">
+                                                <img src="/assets/image/image-svg.svg" [hidden]="!imageClick">
+                                                <img src="/assets/image/image-svg-dark.svg" [hidden]="imageClick">
+                                        </div>
+                                        <div class="menu-title" [ngStyle]="{'color': imageClick ? '#EC575C':'#35373E'}">Images</div>
+                                </div>
+                                <div class="list" (click)="filterImage()">
+                                        <div class="menu-icon">
+                                                <img src="/assets/image/Filters_icon_dark.svg" [hidden]="filterClick">
+                                                <img src="/assets/image/Filters_icon_red.svg" [hidden]="!filterClick">
+                                        </div>
+                                        <div class="menu-title" [ngStyle]="{'color': filterClick ? '#EC575C':'#35373E'}">Filters</div>
+                                </div>
+                                <div class="list" (click)="printImg()">
+                                        <div class="menu-icon">
+                                                <img src="/assets/image/Frame_icon_dark.svg" [hidden]="printClick">
+                                                <img src="/assets/image/Frame_icon_red.svg" [hidden]="!printClick">
+                                        </div>
+                                        <div class="menu-title" [ngStyle]="{'color': printClick ? '#EC575C':'#35373E'}">Prints</div>
+                                </div>
                         </div>
-                        <div class="menu-title"  [ngStyle]="{'color': filterClick ? '#EC575C':'#35373E'}">Filters</div> 
                 </div>
-                <div class="list" (click)="printImg()">
-                        <div class="menu-icon">
-                            <img src="/assets/image/Frame_icon_dark.svg" [hidden]="printClick">
-                            <img src="/assets/image/Frame_icon_red.svg" [hidden]="!printClick">
+                <div class="basket" (click)="openCart(); $event.stopPropagation()">
+                        <div class="print-count">1</div>
+                        <img src="/assets/image/Basket_icon.svg">
+                </div>
+        </div>
+        <span class="icon-Union"></span>
+</div>
+
+<div class="footer-menu-container"  *ngIf="menuShow">
+        <div class="menu-container" *ngIf="showFooterMenu">
+                <div class="options-wrapper">
+                        <div class="list" (click)="uploadImage()">
+                                <div class="menu-icon">
+                                        <img src="/assets/image/image-svg.svg" [hidden]="!imageClick">
+                                        <img src="/assets/image/image-svg-dark.svg" [hidden]="imageClick">
+                                </div>
+                                <div class="menu-title" [ngStyle]="{'color': imageClick ? '#EC575C':'#35373E'}">Upload</div>
                         </div>
-                        <div class="menu-title"  [ngStyle]="{'color': printClick ? '#EC575C':'#35373E'}">Prints</div> 
+                        <div class="list" (click)="filterImage()">
+                                <div class="menu-icon">
+                                        <img src="/assets/image/Filters_icon_dark.svg" [hidden]="filterClick">
+                                        <img src="/assets/image/Filters_icon_red.svg" [hidden]="!filterClick">
+                                </div>
+                                <div class="menu-title" [ngStyle]="{'color': filterClick ? '#EC575C':'#35373E'}">Filters</div>
+                        </div>
+                        <div class="list" (click)="printImg()">
+                                <div class="menu-icon">
+                                        <img src="/assets/image/Frame_icon_dark.svg" [hidden]="printClick">
+                                        <img src="/assets/image/Frame_icon_red.svg" [hidden]="!printClick">
+                                </div>
+                                <div class="menu-title" [ngStyle]="{'color': printClick ? '#EC575C':'#35373E'}">Prints</div>
+                        </div>
                 </div>
-        </div> 
-      </div>
-      <div class="basket" (click)="openCart(); $event.stopPropagation()">
-        <div class="print-count">1</div>
-        <img src="/assets/image/Basket_icon.svg">
-      </div>
-  </div>
-  <span class="icon-Union"></span>
+        </div>
+        <div class="upload-img" (click)="uploadImgInMobile()" *ngIf="!showFooterMenu">
+                <div style="height:0px;overflow:hidden">
+                        <input type="file" id="fileInputInMobile" (change)="selectFile($event)" name="fileInput" accept="image/x-png,image/gif,image/jpeg"/>
+                </div>
+                <img src="/assets/image/cloud_upload.svg">
+                <span class="upload-img-title">Upload an image</span>
+        </div>
 </div>

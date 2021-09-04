@@ -1,3 +1,4 @@
+<div class="desktop-container">
 <div class="home-wrapper" [class.home-wrapper-border]="!imageSrc">
     <ng-container *ngIf="!showLoader && uploadImg && uploadImgContainer">
         <div class="cloud">
@@ -61,6 +62,12 @@
         </div>
     </div>
 </div>
-<div (click)="callphoService()" *ngIf="!uploadImg"><button>poc on pho.to</button></div>
-<!-- <filters *ngIf="printImgUrl"></filters> -->
+<div (click)="callphoService()" *ngIf="!uploadImg">
+<button>poc on pho.to</button>
+<a href="http://worker-images.ws.pho.to/i1/FFF28021-BF19-4B7B-82DF-3902075403A7.jpg" download>Click here </a>
+</div>
 <print-catalog *ngIf="printImgUrl"></print-catalog>
+</div>
+<div>
+    <mobile-home></mobile-home>
+</div>

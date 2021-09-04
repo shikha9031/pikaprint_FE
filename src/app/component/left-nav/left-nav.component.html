@@ -2,13 +2,15 @@
     <ng-container *ngIf="!contactusSec && !feedbackSec">
         <div class="header">
             <img src="/assets/image/Logo.png" class="menu-size">
-            <div class="close" (click)="closeMenu()"> Close <img src="/assets/image/chevron_right.svg" class="right-arrow"></div>
+            <div class="close" (click)="closeMenu()">
+               <div>Close <img src="/assets/image/chevron_right.svg" class="right-arrow"></div>
+            </div>
         </div>
         <div class="menu-body">
             <div class="list" (click)="openDialog('login')" *ngIf="!loginFlag">Login</div>
             <div class="list" (click)="openDialog('signup')" *ngIf="!loginFlag">Signup</div>
-            <div class="list" [routerLink]="['/home']" (click)="showLeftNav = false; homeClick()">Home</div>
-            <div class="list" [routerLink]="['/about-us']" (click)="showLeftNav = false; aboutusClick()">About us</div>            
+            <div class="list" [routerLink]="['/home']" (click)="homeClick(); showLeftNav = false;">Home</div>
+            <div class="list" [routerLink]="['/about-us']" (click)="aboutusClick(); showLeftNav = false; ">About us</div>            
             <div class="list" *ngIf="loginFlag">Track your order</div>
             <div class="list" (click)="open('contact-us')">Contact us</div>
             <div class="list" (click)="open('feedback')">Feedback</div>

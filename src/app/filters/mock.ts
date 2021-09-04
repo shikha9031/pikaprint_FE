@@ -1,42 +1,7 @@
 let mockData=[
     {
-        name:'split_toning',
-        code:`<image_process_call>
-        <image_url></image_url>
-        <methods_list>
-          <method>
-            <name>split_toning</name>
-            <params>desaturate=0;balance=48;shadow_hue=222;highlight_hue=44;shadow_saturation=100;highlight_saturation=94</params>
-          </method>
-        </methods_list>
-        <result_size>1400</result_size>
-        <result_quality>90</result_quality>
-        <template_watermark>true</template_watermark>
-        <lang>en</lang>
-        <abort_methods_chain_on_error>true</abort_methods_chain_on_error>
-      </image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/95B15228-E9A5-4B1D-A0FB-EA9FF1A5730B.jpg'
-    },
-    {
-        name:'particles',
-        url:'http://worker-images.ws.pho.to/i1/5CED2C28-CAE4-48B3-A15E-0A0594E0ACB6.jpg',
-        code:`<image_process_call>
-        <image_url></image_url>
-        <methods_list>
-          <method>
-            <name>particles</name>
-          </method>
-        </methods_list>
-        <result_size>1400</result_size>
-        <result_quality>90</result_quality>
-        <template_watermark>true</template_watermark>
-        <lang>en</lang>
-        <abort_methods_chain_on_error>true</abort_methods_chain_on_error>
-      </image_process_call>`
-    },
-    {
         name:'makeup',
-        url:'http://worker-images.ws.pho.to/i1/DB91BFC5-20D8-4CF3-A82E-C6ADD59A27D5.jpg',
+        url:'http://worker-images.ws.pho.to/i1/FFF28021-BF19-4B7B-82DF-3902075403A7.jpg',
         code:`<image_process_call>
         <image_url></image_url>
         <methods_list>
@@ -53,44 +18,8 @@ let mockData=[
       </image_process_call>`
     },
     {
-        name:'color_dominance',
-        url:'http://worker-images.ws.pho.to/i1/7AF6C818-4188-4021-80B9-50473562B6FD.jpg',
-        code:`<image_process_call>
-        <image_url></image_url>
-        <methods_list>
-          <method>
-            <name>color_dominance</name>
-            <params>hue=3.5</params>
-          </method>
-        </methods_list>
-        <result_size>1400</result_size>
-        <result_quality>90</result_quality>
-        <template_watermark>true</template_watermark>
-        <lang>en</lang>
-        <abort_methods_chain_on_error>true</abort_methods_chain_on_error>
-      </image_process_call>`
-    },
-    {
-        name:'color_dominance',
-        url:'http://worker-images.ws.pho.to/i1/4279F6D4-4713-44EF-92F0-8EA20575DAF2.jpg',
-        code:`<image_process_call>
-        <image_url></image_url>
-        <methods_list>
-          <method>
-            <name>color_dominance</name>
-            <params>hue=3.5;fixed_saturation=0.6</params>
-          </method>
-        </methods_list>
-        <result_size>1400</result_size>
-        <result_quality>90</result_quality>
-        <template_watermark>true</template_watermark>
-        <lang>en</lang>
-        <abort_methods_chain_on_error>true</abort_methods_chain_on_error>
-      </image_process_call>`
-    },
-    {
         name:'sunny_colors',
-        url:'http://worker-images.ws.pho.to/i1/77E04C38-561A-40BD-82FC-848872EB23CA.jpg',
+        url:'http://worker-images.ws.pho.to.s3.amazonaws.com/i1/100234CC-73AF-47A3-ADA2-BDFFF5AEC2E9.jpg',
         code:`<image_process_call>
         <image_url></image_url>
         <methods_list>
@@ -108,7 +37,7 @@ let mockData=[
     {
         name:'split_toning',
         code:`<image_process_call>
-        <image_url>https://firebasestorage.googleapis.com/v0/b/pikaprint-22450.appspot.com/o/my-pic.jpeg?alt=media&token=2546125b-8dea-4f51-b080-a1c53583e750</image_url>
+        <image_url></image_url>
         <methods_list>
           <method>
             <name>split_toning</name>
@@ -121,30 +50,12 @@ let mockData=[
         <lang>en</lang>
         <abort_methods_chain_on_error>true</abort_methods_chain_on_error>
       </image_process_call>`,
-      url:'http://worker-images.ws.pho.to/i1/95B15228-E9A5-4B1D-A0FB-EA9FF1A5730B.jpg'
-    },
-    {
-        name:'split_toning',
-        code:`<image_process_call>
-        <image_url>https://firebasestorage.googleapis.com/v0/b/pikaprint-22450.appspot.com/o/my-pic.jpeg?alt=media&token=2546125b-8dea-4f51-b080-a1c53583e750</image_url>
-        <methods_list>
-          <method>
-            <name>split_toning</name>
-            <params>desaturate=1;balance=35;shadow_hue=186;highlight_hue=21;shadow_saturation=100;highlight_saturation=100</params>
-          </method>
-        </methods_list>
-        <result_size>1400</result_size>
-        <result_quality>90</result_quality>
-        <template_watermark>true</template_watermark>
-        <lang>en</lang>
-        <abort_methods_chain_on_error>true</abort_methods_chain_on_error>
-      </image_process_call>`,
-      url:'http://worker-images.ws.pho.to/i1/93659862-3FCC-41E6-8D06-7464B5849A07.jpg'
+      url:'http://worker-images.ws.pho.to/i1/4832A103-8717-40F8-A78A-D224E7B7EE11.jpg'
     },
     {
         name:'vintage',
         code:`<image_process_call>
-        <image_url>https://firebasestorage.googleapis.com/v0/b/pikaprint-22450.appspot.com/o/my-pic.jpeg?alt=media&token=2546125b-8dea-4f51-b080-a1c53583e750</image_url>
+        <image_url></image_url>
         <methods_list>
           <method>
             <name>vintage</name>
@@ -157,7 +68,7 @@ let mockData=[
         <lang>en</lang>
         <abort_methods_chain_on_error>true</abort_methods_chain_on_error>
       </image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/62B0DFD9-80C7-4F51-B846-1060B3B36EE3.jpg'
+        url:'http://worker-images.ws.pho.to/i1/693329B3-7310-4691-ADEB-892224BAC15C.jpg'
     },
     {
         name:'vintage',
@@ -175,7 +86,7 @@ let mockData=[
         <lang>en</lang>
         <abort_methods_chain_on_error>true</abort_methods_chain_on_error>
       </image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/EFAE5720-6551-4134-B837-C5E553E9B653.jpg'
+        url:'http://worker-images.ws.pho.to.s3.amazonaws.com/i1/7369AF4B-276A-402D-B4DC-0A8B98A91275.jpg'
     },
     {
         name:'vintage',
@@ -193,7 +104,7 @@ let mockData=[
         <lang>en</lang>
         <abort_methods_chain_on_error>true</abort_methods_chain_on_error>
       </image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/F9F72E8B-335C-420C-8311-348B826EE1F9.jpg'
+        url:'http://worker-images.ws.pho.to/i1/65EB09DE-4CA9-468B-83D9-EACFBE2B99CE.jpg'
     },
     {
         name:'vintage',
@@ -211,7 +122,7 @@ let mockData=[
         <lang>en</lang>
         <abort_methods_chain_on_error>true</abort_methods_chain_on_error>
       </image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/B6123B9F-3294-4BB7-8484-B42FCA04A228.jpg'
+        url:'http://worker-images.ws.pho.to.s3.amazonaws.com/i1/FAB53022-D456-4B6C-8168-875F7220C82B.jpg'
     },
     {
         name:'vintage',
@@ -229,206 +140,88 @@ let mockData=[
         <lang>en</lang>
         <abort_methods_chain_on_error>true</abort_methods_chain_on_error>
       </image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/2D29708F-4992-4892-AC6D-E7EAFFFBE011.jpg'
+        url:'http://worker-images.ws.pho.to/i1/5CC56B86-F015-4325-A80A-51111EDF17C2.jpg'
     },
     {
-        name:'romantic-spring-frame',
-        code:`<image_process_call><image_url order="1"></image_url><image_url order="2"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=spring_romance</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/21CA2B60-8562-11EA-82FD-02EB41F5A93E.jpg'
-    },
-    {
-        name:'color_pencil_drawing',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=color_pencil_drawing;template_variant=1</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/F9F31C35-FB63-4C64-B265-4D7E99898871.jpg',
-    },
-    {
-        name:'Sketch',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=sketch</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/18230BBE-8561-11EA-83DD-0ADAC16C6D13.jpg'
+        name:'dry_brush',
+        code:`<image_process_call>
+        <image_url></image_url>
+        <methods_list>
+          <method>
+          <name>dry_brush</name>
+          </method>
+        </methods_list>
+        <result_size>1400</result_size>
+        <result_quality>90</result_quality>
+        <template_watermark>true</template_watermark>
+        <lang>en</lang>
+        <abort_methods_chain_on_error>true</abort_methods_chain_on_error>
+      </image_process_call>`,
+        url:'http://worker-images.ws.pho.to/i1/4BC56DD0-C02A-433D-95F6-40A6BA6D1F96.jpg'
     },
     {
         name:'vintage-charcoal-sketch',
         code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=vintage_charcoal_sketch</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/D2F8BB02-8C5C-4257-8037-719C1F5EC27C.jpg'
-    },
-    {
-        name:'light-bokeh-overlay',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=light_bokeh</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/12CC6D46-8560-11EA-AAD7-023FC66F1913.jpg',
-    },
-    {
-        name:'crayon_drawing',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=crayon_drawing</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/3BD7401C-8560-11EA-B0DF-0A9994B72B2B.jpg',
-    },
-    {
-        name:'phone-in-hands',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=phone_in_hands</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/65ADDB80-8560-11EA-84CA-1262B0402AFB.jpg',
+        url:'http://worker-images.ws.pho.to/i1/3CD6776F-045F-49AB-A09A-5859E718FCAC.jpg'
     },
     {
         name:'old-photo-effect',
         code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=old_photo</params></method></methods_list><result_size>2000</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/88B9E0E9-2F76-452D-A792-C0BDAD011926.jpg',
-    },
-    {
-        name:'rain-drops-effect',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=rain_drops</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/B85CBC70-8560-11EA-8C61-0ADAC16C6D13.jpg',
-    },
-    {
-        name:'double-heart-frame',
-        code:`<image_url order="1"></image_url><image_url order="2"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=together_forever</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/F47C617B-97AB-44B6-88FF-4B6B6F0819F3.jpg',
-    },
-    {
-        name:'pastel_drawing_vs_photography',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=pastel_drawing_vs_photography</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/F707C0E2-762E-4785-9B9E-CA4E281E5F02.jpg'
+        url:'http://worker-images.ws.pho.to/i1/DB2C37BC-09BC-46BE-89E9-0A68A0F319A7.jpg',
     },
     {
         name:'photography_in_drawing',
         code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=photography_in_drawing</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/568EFD37-3DCF-4CD4-BDD0-34EF58E808B4.jpg'
-    },
-    {
-        name:'photography_vs_watercolor',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=photography_vs_watercolor</params></method></methods_list><result_size>2000</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/8FEA43A6-5368-489C-AA44-3D68028771E5.jpg'
+        url:'http://worker-images.ws.pho.to/i1/6B5A21B4-41E5-484F-8CD4-F2F90039ED71.jpg'
     },
     {
         name:'birthday_balloons',
         code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=birthday_balloons</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/9EBCFC11-ABB1-48CC-901B-CB9CC42FE5AA.jpg'
+        url:'http://worker-images.ws.pho.to/i1/45A7E0D8-16E0-4BC8-BA19-4D740DB5286B.jpg'
     },
     {
         name:'wedding_march',
         code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=wedding_march</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/11A61406-8F37-4CD0-AB4E-9BF584199AE6.jpg'
-    },
-    {
-        name:'street_graffiti',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=street_graffiti</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/7904E984-8557-11EA-8F36-169BA8B27A4B.jpg'
+        url:'http://worker-images.ws.pho.to/i1/4E4D460E-EE3F-4020-9375-52F5F441855B.jpg'
     },
     {
         name:'ocean_paradise',
         code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=ocean_paradise</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/12337934-EC10-4C66-B3F2-C89C381ED97B.jpg'
+        url:'http://worker-images.ws.pho.to/i1/1CAD653B-2714-49D1-A49B-347CA8B0EB3F.jpg'
     },
     {
         name:'icy_window',
         code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=icy_window</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/17F67028-FF1B-4F82-81D0-F5644A4BB415.jpg'
-    },
-    {
-        name:'festive_balloons',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=festive_balloons</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/46A3CAFE-8558-11EA-85D4-12B39ABFDEAB.jpg'
-    },
-    {
-        name:'butterfly_overlay',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=butterfly_overlay</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/80D42E12-8558-11EA-8C0E-0EFD834F507B.jpg'
-    },
-    {
-        name:'grunge_photo_effect',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=grunge_photo_effect</params></method></methods_list><result_size>2000</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/0C156306-8559-11EA-B05C-12B06EB3B093.jpg'
-    },
-    {
-        name:'dave_hill',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=dave_hill</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/400D9BEC-8559-11EA-AEE5-12B06EB3B093.jpg'
-    },
-    {
-        name:'red_boost',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=red_boost</params></method></methods_list><result_size>2000</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/7080F6DE-8559-11EA-8829-169BA8B27A4B.jpg'
-    },
-    {
-        name:'bronze_sepia',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=bronze_sepia</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/B80A5C48-8559-11EA-AD25-02EB41F5A93E.jpg'
-    },
-    {
-        name:'dramatic_look',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=dramatic_look</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/11CEA0D6-855A-11EA-8A54-12505C849465.jpg'
-    },
-    {
-        name:'dreams_of_love',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=dreams_of_love</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/43254518-855A-11EA-996B-0E170EFC33D9.jpg'
-    },
-    {
-        name:'maple_leaves',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=maple_leaves</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/74540188-855A-11EA-AC70-0ADAC16C6D13.jpg'
-    },
-    {
-        name:'christmas_bokeh',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=christmas_bokeh</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/9F8ABA90-855A-11EA-B200-0E170EFC33D9.jpg'
-    },
-    {
-        name:'soft_lilac',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=soft_lilac</params></method></methods_list><result_size>2000</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/D867F86E-855A-11EA-9073-0EFD834F507B.jpg'
+        url:'http://worker-images.ws.pho.to/i1/BC2EB4CF-3CD7-491E-BC08-2ED8189848E3.jpg'
     },
     {
         name:'retro_film',
         code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=retro_film</params></method></methods_list><result_size>2000</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/ECE4F14E-11E9-4064-8B5F-7AD52487D029.jpg'
+        url:'http://worker-images.ws.pho.to/i1/79E30778-380F-48B8-8940-731ED0A4B145.jpg'
     },
     {
         name:'triptych_effect',
         code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=triptych_effect</params></method></methods_list><result_size>2000</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/FC78E529-7F21-4086-ACAF-E0C9B98271C6.jpg'
-    },
-    {
-        name:'vignetting',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=vignetting</params></method></methods_list><result_size>2000</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/8329C1CE-855B-11EA-A6E0-02EB41F5A93E.jpg'
-    },
-    {
-        name:'dreamy_retro',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=dreamy_retro</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/ADF7BC3A-855B-11EA-A0DF-12B06EB3B093.jpg'
-    },
-    {
-        name:'rain_effect',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=rain_effect</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/E2213C20-855B-11EA-9002-0E170EFC33D9.jpg'
-    },
-    {
-        name:'sweet_caramel',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=sweet_caramel</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/14ACAA62-855C-11EA-B22A-12B06EB3B093.jpg'
+        url:'http://worker-images.ws.pho.to/i1/E9AEAADA-D13E-4991-AE81-814FD8B4D283.jpg'
     },
     {
         name:'elephant_artist',
         code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=elephant_artist</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/13E763A4-00FD-4116-928C-982EE9B88739.jpg'
-    },
-    {
-        name:'lilac_haze_filter',
-        code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=lilac_haze_filter</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/74493BAA-8586-11EA-8FDD-12789C8948B9.jpg'
+        url:'http://worker-images.ws.pho.to/i1/EF5BDE16-C49C-4756-B52C-677A4571B8EC.jpg'
     },
     {
         name:'steamed_mirror_effect',
         code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=steamed_mirror_effect</params></method></methods_list><result_size>2000</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/6D9D65FD-95CE-4196-979D-E0F1CEC29C15.jpg'
+        url:'http://worker-images.ws.pho.to/i1/AC73A42C-4F07-4204-819D-E2EA86A68290.jpg'
     },
     {
         name:'dramatic_bronze',
         code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=dramatic_bronze</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/367CE9AA-66DB-4BDF-8D1D-E32BF838D95D.jpg'
+        url:'http://worker-images.ws.pho.to/i1/FB96D73B-8674-4632-AFCA-4CE1883E99DD.jpg'
     },
     {
         name:'rainbow_sketch',
         code:`<image_process_call><image_url order="1"></image_url><methods_list><method order="1"><name>collage</name><params>template_name=rainbow_sketch</params></method></methods_list><result_size>1400</result_size><result_quality>90</result_quality><template_watermark>true</template_watermark><lang>en</lang><abort_methods_chain_on_error>true</abort_methods_chain_on_error></image_process_call>`,
-        url:'http://worker-images.ws.pho.to/i1/8FB3D4C0-851A-4177-9BDE-CFD95D62FD4B.jpg'
+        url:'http://worker-images.ws.pho.to/i1/D6FC867D-AE43-4DB5-8F7D-1C03B6D968D6.jpg'
     }
 ]

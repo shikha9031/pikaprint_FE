@@ -20,36 +20,27 @@
             position: absolute;
             top: -7px;
             left: 66px;
+            @media(max-width:768px){
+                top: 1px;
+                left: 35px;
+                width: 110px;
+            }
           }
         }
         .menu-container{
-            width: 98%;
-            .options-wrapper{
-                text-align: center;
-                .list{
-                    display: inline-block;
-                    margin-right: 45px;
-                    cursor: pointer;
-                    .menu-icon{
-                        display: inline-block;
-                    }
-                    .menu-title{
-                        display: inline-block;
-                        font-family: 'IBM Plex Sans', sans-serif;
-                        font-style: normal;
-                        font-weight: 500;
-                        font-size: 20px;
-                        line-height: 29px;
-                        vertical-align: top;
-                        margin-left: 5px;
-                    }
-                }
+            display: block;
+            @media(max-width:768px){
+                display: none;
             }
-        }
+        } 
         .basket{
             position: absolute;
             right: 14px;
             top: 0;
+            @media(max-width:768px){
+                right: -10px;
+                top: -13px;
+            }
             cursor: pointer;
             .print-count{
                 background: #5D7CD0;
@@ -65,6 +56,68 @@
                 width: 18px;
                 height: 18px;
             }
+        }
+    }
+}
+
+.menu-container{
+    width: 98%;
+    .options-wrapper{
+        text-align: center;
+        .list{
+            display: inline-block;
+            margin-right: 45px;
+            cursor: pointer;
+            @media(max-width:768px){
+                margin-right: 17px; 
+            }
+            .menu-icon{
+                display: inline-block;
+                @media(max-width:768px){
+                    img{
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+            }
+            .menu-title{
+                display: inline-block;
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 29px;
+                vertical-align: top;
+                margin-left: 5px;
+                @media(max-width:768px){
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+.footer-menu-container{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: none;
+    padding: 0 20px 21px;
+    @media(max-width:768px){
+        display: block;
+    }
+    .upload-img{
+        background: #211F78;
+        border-radius: 6px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 32px;
+        color: #FFFFFF;
+        text-align: center;
+        padding: 13px 0 11px;
+        .upload-img-title{
+            margin-left: 13px;
+            cursor: pointer;
         }
     }
 }

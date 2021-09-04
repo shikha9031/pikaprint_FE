@@ -45,6 +45,8 @@ import { LeftNavComponent } from './component/left-nav/left-nav.component';
 import { UserComponent } from './component/user/user.component';
 import { FeedbackComponent } from './component/feedback/feedback.component';
 import { AboutUsComponent } from './component/about-us/about-us.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { MobileHomeComponent } from './component/mobile-home/mobile-home.component';
 
 /** reducer */
 let reducer = {
@@ -74,7 +76,9 @@ let reducer = {
     LeftNavComponent,
     UserComponent,
     FeedbackComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    FooterComponent,
+    MobileHomeComponent
   ],
   imports: [
     BrowserModule,

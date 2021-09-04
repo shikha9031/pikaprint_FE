@@ -55,7 +55,7 @@ export class UserComponent implements OnInit {
       var errorCode = error.code;
       var errorMessage = error.message;
       this.toastr.error(errorMessage);
-      // ...
+      console.log(errorMessage);
     });
   }
 

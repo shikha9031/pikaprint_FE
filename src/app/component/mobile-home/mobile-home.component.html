@@ -1,0 +1,12 @@
+<div class="mobile-container">
+    <div class="upload-img-mob" *ngIf="uploadImg">
+      <div class="upload-icons">
+      <div class="cloud"><img src="/assets/image/cloud.svg"></div>
+      <div  class="up-arrow"><img src="/assets/image/up-arrow.svg"></div>
+      <div><img src="/assets/image/upload_in_mobile.svg"></div>
+      </div>
+    </div>
+    <div class="img-container" *ngIf="printImgUrl && !uploadImg">
+      <img [src]="printImgUrl" class="img-responsive">
+    </div>
+</div>

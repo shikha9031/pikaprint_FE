@@ -11,18 +11,22 @@ import * as menuRef from '../../store/action/menu.action';
 import { UploadImage } from '../../interface/img';
 import { Filter } from '../../interface/filter';
 
+declare var $: any;
+
 @Component({
   selector: 'header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  imageSrc: any;
 
   /** menu variable declaration */
   imageClick: boolean = true;
   filterClick: boolean = false;
   printClick: boolean = false;
   menuShow: boolean = true;
+  showFooterMenu: boolean = false;
 
   constructor(private _store: Store<any>, private router: Router) { }
 
@@ -49,6 +53,7 @@ export class HeaderComponent implements OnInit {
     this.imageClick = true;
     this.filterClick = false;
     this.printClick = false;
+    this.showFooterMenu = false;
     this._store.dispatch(new imgUploadRef.ImgTabOpen(true));
     this._store.dispatch(new filterRef.FilterOptionsToggle(false));
     this._store.dispatch(new printRef.PrintImgSectionToggle(false));
@@ -74,5 +79,24 @@ export class HeaderComponent implements OnInit {
   }
   openMenu() {
     this._store.dispatch(new menuRef.OpenSideMenu(true));
+  }
+  
+  uploadImgInMobile(){
+    $("#fileInputInMobile").click();
+  }
+  selectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = e => {
+        this.imageSrc = reader.result;
+        this._store.dispatch(new printRef.PrintImg(reader.result));
+      }
+      reader.readAsDataURL(file);
+      this.showFooterMenu = true;
+      this.filterImage();
+      // this._store.dispatch(new filterRef.FilterOptionsToggle(true));
+       this._store.dispatch(new imgUploadRef.ImgTabOpen(false));
+    }
   }
 }

@@ -13,6 +13,7 @@ import { PhotoEditingService } from '../../service/photo-editing.service';
 
 import * as CryptoJS from 'crypto-js';
 declare var $: any;
+declare var window: any;
 
 @Component({
   selector: 'app-home',
@@ -93,19 +94,19 @@ export class HomeComponent implements OnInit {
     let app_id = '74c239ff38602894b52e3f546403b995';
     let KEY = '75adf80e47e5a340e5cf069d294a9899';
     let DATA = `<image_process_call>
-    <image_url>https://firebasestorage.googleapis.com/v0/b/pikaprint-22450.appspot.com/o/anna-auza-MTg6nH8_lOY-unsplash.jpg?alt=media&token=256c36b4-a089-4ca2-9571-caa3afa32f28</image_url>
+    <image_url order="1">https://firebasestorage.googleapis.com/v0/b/pikaprint-22450.appspot.com/o/babu.jpeg?alt=media&token=5e890ac4-d807-4391-95de-b9a312684762</image_url>
     <methods_list>
-      <method>
-      <name>makeup</name>
-      <params>use_skin_healing=true;use_eyes_enhancement=true;use_teeth_whitening=true;use_portrait_filters=true;use_flash_healing=true;use_wrinkles_healing=true;use_auto_red_eye=false</params>
-      </method>
+    <method order="1">
+    <name>split_toning</name>
+    <params>desaturate=0;balance=48;shadow_hue=222;highlight_hue=44;shadow_saturation=100;highlight_saturation=94</params>    
+    </method>
     </methods_list>
-    <result_size>1400</result_size>
+    <result_size>2000</result_size>
     <result_quality>90</result_quality>
     <template_watermark>true</template_watermark>
     <lang>en</lang>
     <abort_methods_chain_on_error>true</abort_methods_chain_on_error>
-  </image_process_call>`;
+    </image_process_call>`;
 
     let hash = (CryptoJS.HmacSHA1(DATA, KEY)).toString();
 
@@ -135,8 +136,6 @@ export class HomeComponent implements OnInit {
           let xmlDoc = parser.parseFromString(res, "text/xml");
           let status = xmlDoc.getElementsByTagName("status")[0].childNodes[0].nodeValue;
           let newRequestID = xmlDoc.getElementsByTagName("request_id")[0].childNodes[0].nodeValue;
-          console.log(newRequestID);
-          console.log(status);
           if (status === 'InProgress') {
             this.getRequestedImg(newRequestID);
           }
@@ -158,5 +157,13 @@ export class HomeComponent implements OnInit {
     else {
       return (new DOMParser()).parseFromString(oString, "text/xml");
     }
+  }
+  saveFile(uri) {
+    var link = document.createElement("a");
+    link.download = 'abc.jpg';
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 }
